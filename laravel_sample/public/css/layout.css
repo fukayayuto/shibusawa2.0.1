@@ -1,0 +1,332 @@
+@charset "utf-8";
+/*
+	Description: initial setting
+	Version: 1.0
+	Author: idealgrow
+*/
+/*
+===== CONTENTS ===========================================
+
+	1: BASE LAYOUT
+
+==========================================================
+*/
+/*
+===== 1: BASE LAYOUT =====================================
+*/
+body#base {
+  background: url("../img/shared/main_bg01.webp") center top;
+  background-size: 100% auto;
+}
+#base header {
+  height: 70px;
+  padding: 10px;
+  position: relative;
+}
+#base header #logo {
+  position: relative;
+  z-index: 35;
+}
+#base header #logo img {
+  height: 50px;
+  width: auto;
+}
+#base header #global #sns {
+  position: absolute;
+  right: 52px;
+  top: 13px;
+  display: flex;
+  margin-top: 13px;
+}
+#base header #global #sns li {
+  margin-right: 8px;
+}
+#base header #global #sns img {
+  height: 30px;
+}
+#base header #global .navTrigger {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  margin-top: 6.5px;
+  background: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 35;
+}
+#base header #global .navTrigger span {
+  width: 16px;
+  height: 8px;
+  display: block;
+  position: relative;
+}
+#base header #global .navTrigger span:before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.2s;
+}
+#base header #global .navTrigger span:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: all 0.2s;
+}
+#base header #global .navTrigger.active span:before {
+  transform: rotate(-45deg);
+  top: 3px;
+}
+#base header #global .navTrigger.active span:after {
+  transform: rotate(45deg);
+  bottom: 3px;
+}
+#base header #global nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #f0f0f0;
+  padding: 80px 20px;
+  display: none;
+  z-index: 30;
+}
+#base header #global nav:before {
+  content: "";
+  background: url("../img/shared/nav_bg.svg")left top no-repeat;
+  width: 366px;
+  height: 450px;
+  position: absolute;
+  left: -80px;
+  bottom: -80px;
+  opacity: 0.2;
+}
+#base header #global nav ul li a {
+  text-align: center;
+  display: block;
+  padding: 20px;
+  border-bottom: solid 1px #ddd;
+  font-size: 18px;
+  font-weight: bold;
+}
+.inner {
+  padding: 20px;
+  position: relative;
+}
+#base footer {
+  background: #fff;
+  height: 156px;
+}
+#base footer #footIn {
+  padding: 20px 0;
+}
+#base footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#base footer ul li {
+  padding: 5px;
+  font-size: 14px;
+}
+#base footer p {
+  font-size: 14px;
+  text-align: center;
+  color: #4b4b4b;
+  margin-top: 20px;
+}
+#base #bodyHead {
+  border-top: solid 2px #7c5f3b;
+  padding: 20px 10px;
+  margin: 0 10px;
+  position: relative;
+}
+#base #bodyHead:before {
+  content: "";
+  background: url("../img/shared/ico_bodytop.svg")center center no-repeat;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -5px;
+  top: -11px;
+}
+#base #bodyHead:after {
+  content: "";
+  background: url("../img/shared/ico_bodytop.svg")center center no-repeat;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: -5px;
+  top: -11px;
+  transform: scale(-1, 1);
+}
+#base #bodyHead #breadCrumbs ol {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+#base #bodyHead #breadCrumbs ol li {
+  font-size: 14px;
+  letter-spacing: -0.5px;
+}
+#base #bodyHead #breadCrumbs ol li a {
+  display: block;
+  position: relative;
+  margin-right: 10px;
+}
+#base #bodyHead #breadCrumbs ol li a:after {
+  content: "";
+  background: url("../img/shared/ico_breadcrumbs.svg")center center no-repeat;
+  width: 10px;
+  height: 12px;
+  position: absolute;
+  right: -10px;
+  top: 42%;
+  transform: translateY(-50%);
+}
+#base main {
+  min-height: calc(100vh - 226px);
+}
+@media screen and (min-width: 1159px) {
+  #base header {
+    height: 115px;
+    padding: 0;
+    width: 1000px;
+    margin: 0 auto;
+  }
+  #base header #logo {
+    padding: 20px 0 0 0;
+    width: 280px;
+  }
+  #base header #logo img {
+    height: 76px;
+  }
+  #base header #global #sns {
+    right: 0;
+    top: 0;
+    margin-top: 16px;
+  }
+  #base header #global #sns li {
+    margin-right: 0;
+    margin-left: 8px;
+  }
+  #base header #global #sns img {
+    height: 26px;
+  }
+  #base header #global .navTrigger {
+    display: none;
+  }
+  #base header #global nav {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    left: auto;
+    bottom: auto;
+    background: none;
+    padding: 0;
+    display: block;
+  }
+  #base header #global nav:before {
+    display: none;
+  }
+  #base header #global nav ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+  #base header #global nav ul li {
+    margin-left: 20px;
+    padding-left: 20px;
+    position: relative;
+  }
+  #base header #global nav ul li:before {
+    content: "";
+    background: #b7a793;
+    width: 1px;
+    height: 80%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #base header #global nav ul li:first-of-type:before {
+    display: none;
+  }
+  #base header #global nav ul li a {
+    text-align: center;
+    display: block;
+    padding: 0;
+    border-bottom: none;
+    font-size: 16px;
+  }
+  .inner {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+  #base footer {
+    height: 65px;
+  }
+  #base footer #footIn {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+  }
+  #base footer ul {
+    width: 70%;
+    justify-content: flex-start;
+  }
+  #base footer ul li {
+    padding: 0;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  #base footer p {
+    width: 30%;
+    text-align: right;
+    margin-top: 0;
+  }
+  #base #bodyHead {
+    width: 1000px;
+    margin: 0 auto 40px auto;
+    padding: 20px 0;
+    position: relative;
+  }
+  #base #bodyHead:before {
+    left: -20px;
+  }
+  #base #bodyHead:after {
+    right: -20px;
+  }
+  #base #bodyHead #breadCrumbs {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #base #bodyHead #breadCrumbs ol li {
+    font-size: 16px;
+  }
+  #base #bodyHead #breadCrumbs ol li a {
+    margin-right: 20px;
+  }
+  #base #bodyHead #breadCrumbs ol li a:after {
+    right: -15px;
+  }
+  #base main {
+    min-height: calc(100vh - 180px);
+  }
+}

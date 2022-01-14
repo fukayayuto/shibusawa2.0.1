@@ -1,0 +1,804 @@
+@charset "utf-8";
+/*
+	Description: initial setting
+	Version: 1.0
+	Author: idealgrow
+*/
+/*
+===== CONTENTS ===========================================
+
+	1: BASE LAYOUT
+
+==========================================================
+*/
+/*
+===== 1: BASE LAYOUT =====================================
+*/
+body {
+background: url("../img/event/shibusawa/bg_texture.webp")left bottom no-repeat, linear-gradient(90deg, rgba(243,186,103,1) 0%, rgba(244,206,115,1) 100%);
+  background-size: 100% auto, 100% auto;
+	background-blend-mode: screen;
+}
+ header {
+  height: 70px;
+  padding: 10px;
+  position: relative;
+}
+ header #logo {
+  position: relative;
+  z-index: 35;
+}
+ header #logo img {
+  height: 50px;
+  width: auto;
+}
+#global{
+	display: none;
+}
+.inner {
+  padding: 20px;
+  position: relative;
+}
+ footer {
+  background: #fff;
+  height: 206px;
+	 padding-bottom: 50px;
+}
+ footer #footIn {
+  padding: 20px 0;
+}
+ footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ footer ul li {
+  padding: 5px;
+  font-size: 14px;
+}
+ footer p {
+  font-size: 14px;
+  text-align: center;
+  color: #4b4b4b;
+  margin-top: 20px;
+}
+ main {
+  min-height: calc(100vh - 226px);
+}
+.fixSns{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	height: 50px;
+	z-index: 10;
+	background: #fff;
+	border-top: solid 1px #ddd;
+}
+.fixSns li{
+	width: 33.3%;
+	border-right: solid 1px #ddd;
+}
+.fixSns li:last-of-type{
+	border-right: none;
+}
+.fixSns li img{
+	height: 40px;
+	width: auto;
+	margin: 5px auto;
+}
+.fixSns li a{
+	display: block;
+}
+#shibusawaMain{
+	margin-top: -70px;
+	height:calc(100vh - 120px);
+	background: url("../img/event/shibusawa/main_bg02.webp")left bottom no-repeat,url("../img/event/shibusawa/main_bg01.webp") center top 60px no-repeat;
+	background-size: 120% auto,150% auto;
+	pointer-events: none;
+}
+#shibusawaMain #titleBox{
+	position: absolute;
+	height:calc(100vh - 120px);
+	width: 100%;
+	background: url("../img/event/shibusawa/main_bg03.webp")left bottom no-repeat;
+	background-size: 90% auto;
+}
+#shibusawaMain #titleBox h1{
+	margin-top: 120px;
+	padding: 0 20px;
+}
+#shibusawaMain #titleBox p{
+	padding: 20px;
+	font-size: 18px;
+}
+#story{
+	background: rgba(255,255,255,0.2);
+	padding:40px 20px;
+}
+#story .catch{
+	text-align: center;
+	margin-bottom: 20px;
+}
+#story .catch span{
+	border: solid 1px #000;
+	padding: 10px;
+	font-size: 18px;
+}
+#story h2{
+	text-align: center;
+	font-size: 32px;
+	color: #700606;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+#story .info{
+	font-size: 18px;
+}
+#story #storyBoard{
+	background: #fff;
+  box-shadow: 8.03px 11.468px 4px 0px rgba(0, 0, 0, 0.2);
+	padding:40px 20px;
+	position: relative;
+}
+#story #storyBoard h3{
+	border-top: solid 1px #3b3b3b;
+	padding-top: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+	position: relative;
+}
+#story #storyBoard p{
+	position: relative;
+	border-bottom: solid 1px #3b3b3b;
+	padding-bottom: 20px;
+}
+#story #storyBoard p span{
+	line-height: 2em;
+	background-image: linear-gradient(transparent 0, transparent 97%, #ddd 100%);
+	background-size: 100% 2em;
+	display: block;
+}
+#story #storyBoard p span br.smt{
+	display: none;
+}
+#story #storyBoard h3:before,#story #storyBoard h3:after,#story #storyBoard p:before,#story #storyBoard p:after{
+	content: "";
+	background: url("../img/event/shibusawa/ico_historymark.svg")center center no-repeat;
+	background-size: 100% auto;
+	width: 20px;
+	height: 10px;
+	position: absolute;
+}
+#story #storyBoard .inBoard{
+	position: relative;
+}
+#story #storyBoard .inBoard:before,#story #storyBoard .inBoard:after{
+	content: "";
+	background: url("../img/event/shibusawa/ico_historycenter.svg")center center no-repeat;
+	background-size: 100% auto;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+#story #storyBoard .inBoard:before{
+	top: -20px;	
+}
+#story #storyBoard .inBoard:after{
+	bottom: -20px;
+	transform: translateX(-50%) scale(1,-1);
+}
+#story #storyBoard h3:before{
+	left: -10px;
+	top: -5px;
+}
+#story #storyBoard h3:after{
+	right: -10px;
+	top: -5px;
+	transform: scale(-1 , 1);
+}
+#story #storyBoard p:before{
+	left: -10px;
+	bottom: -5px;
+}
+#story #storyBoard p:after{
+	right: -10px;
+	bottom: -5px;
+	transform: scale(-1 , 1);
+}
+#tour{
+	padding: 40px 20px;
+}
+#tour .tourType{
+	display: flex;
+	margin-bottom: 20px;
+}
+#tour .tourType li{
+	width: 32%;
+	margin-right: 2%;
+	text-align: center;
+	font-size: 14px;
+}
+#tour .tourType li:last-of-type{
+	margin-right: 0;
+}
+#tour .tourType li p{
+	background: #1a203a;
+	border-radius: 50%;
+	padding:20px 15px;
+	color: #fff;
+	font-size: 15px;
+}
+#tour .tourType li p img{
+	height: 30px;
+	margin: 0 auto 5px auto;
+}
+#tour #tourInfo{
+	background: #1a203a;
+	padding: 10px;
+	position: relative;
+}
+#tour #tourInfo:before,
+#tour #tourInfo:after,
+#tour #tourInfoIn:before,
+#tour #tourInfoIn:after{
+	content: "";
+	background: url("../img/event/shibusawa/ico_infoframe.svg")center center no-repeat;
+	background-size: 100% auto;
+	width: 28px;
+	height: 28px;
+	position: absolute;
+}
+#tour #tourInfo:before{
+	left: 10px;
+	top: 10px;
+	transform: scale(1,-1);
+}
+#tour #tourInfo:after{
+	right: 10px;
+	top: 10px;
+	transform: scale(-1,-1);
+}
+#tour #tourInfoIn:before{	
+	left: 10px;
+	bottom: 10px;
+}
+#tour #tourInfoIn:after{	
+	right: 10px;
+	bottom: 10px;
+	transform: scale(-1,1);
+}
+#tour #tourInfoIn{
+	padding: 20px 10px;
+}
+#tour #tourInfoIn p{
+	background: #fff;
+	text-align: center;
+	padding: 5px;
+	color: #1a203a;
+	margin: 0 5px;
+}
+#tour #tourInfoIn p span{
+	font-size: 24px;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+#tour #tourInfoIn table{
+	color: #fff;
+	border-collapse:separate;
+	border-spacing:5px;
+	width: 100%;
+}
+#tour #tourInfoIn table th,
+#tour #tourInfoIn table td{
+	border: solid 1px #fff;
+}
+#tour #tourInfoIn table th{
+	background: #a3a6b0;
+	font-size: 14px;
+	font-weight: normal;
+}
+#tour #tourInfoIn table td{
+	font-size: 14px;
+	padding: 5px 0;
+	text-align: center;
+}
+#tour #tourInfoIn table td span{
+	font-size: 16px;
+	letter-spacing: -1px;
+}
+#tour #tourInfoIn dl{
+	margin-top: 20px;
+	padding: 0 5px;
+}
+#tour #tourInfoIn dt{
+	color: #bec2d4;
+	font-size: 14px;
+}
+#tour #tourInfoIn dt:after{
+	content: "";
+	width: 60px;
+	height: 1px;
+	background: #fff;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+#tour #tourInfoIn dd{
+	color: #fff;
+	margin-bottom: 20px;
+}
+#tour #tourInfoIn dd br{
+	display: none;
+}
+#tour #tourInfoIn dd:last-of-type{
+	margin-bottom: 0;
+}
+#reserve{
+	background: #fff;
+	padding: 40px 20px;
+}
+#point{
+	background: url("../img/event/shibusawa/point_bg.webp")center center no-repeat,#ffc974;
+	background-blend-mode: color-burn;
+	background-size: cover;
+	padding: 40px 20px;
+}
+#point li{
+	background: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+#point li img{
+	height: 180px;
+	margin: 0 auto 20px auto;
+}
+#point li h3{
+	text-align: center;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+#point li h3 > span{
+	background: linear-gradient(transparent 50%, #ffe9c2 0%);
+	font-weight: bold;
+	padding: 0 5px;
+}
+#point li h3 span span{
+	color: #c43b05;
+}
+#faq01{
+	background: #f0f0f0;
+	padding: 40px 20px;
+}
+#faq01 h2{
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+#faq01 ul{
+	counter-reset: faq01Num;
+}
+#faq01 ul li{
+	counter-increment: faq01Num;
+	background: #fff;
+	margin-bottom: 20px;
+}
+#faq01 ul li h3{
+	font-weight: bold;
+	padding: 20px 20px 0 60px;
+	position: relative;
+	margin-bottom: 10px;
+}
+#faq01 ul li h3:before{
+	content: "Q" counter(faq01Num);
+	position: absolute;
+	left: 20px;
+}
+#faq01 ul li p{
+	padding: 0 20px 20px 20px;
+}
+#faq01  li table{
+	border-collapse: collapse;
+	background: #fff;
+	width: 100%;
+}
+#faq01  li table th{
+	font-size: 12px;
+	border-top: solid 1px #bfb19e;
+	padding: 10px 0 0 0;
+	text-align: center;
+	width: 25%;
+	border-right: solid 1px #bfb19e;
+}
+#faq01  li table td{
+	text-align: center;
+	border-right: solid 1px #bfb19e;
+}
+#faq01  li table th:last-of-type,
+#faq01  li table td:last-of-type{
+	border-right: none;
+}
+#faq li table td:last-of-type{
+	color: #A60002;
+	font-weight: bold;
+}
+.fixReserve{
+	position: fixed;
+	right: 0;
+	top: 20px;
+	background: rgb(72, 49, 20);
+	z-index: 50;
+	border-radius: 5px 0 0 5px;
+}
+.fixReserve a{
+	font-size: 14px;
+	color: #fff;
+	background: url("../img/shared/ico_reserve.webp")center top 12px no-repeat;
+	display: block;
+	background-size: 26px;
+	padding:44px 25px 8px 25px;
+}
+@media screen and (min-width: 1159px) {
+   header {
+    height: 115px;
+    padding: 0;
+    width: 1000px;
+    margin: 0 auto;
+  }
+   header #logo {
+    padding: 20px 0 0 0;
+    width: 280px;
+  }
+   header #logo img {
+    height: 76px;
+  }
+	header #global{
+		display: block;
+	}
+   header #global nav {
+	   border-top:solid 1px #725e38;
+	   border-bottom: solid 1px #725e38;
+    position: absolute;
+    right: 0;
+    top: 40px;
+	   padding: 10px 0;
+  }
+   header #global nav:before {
+    display: none;
+  }
+   header #global nav ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+   header #global nav ul li {
+	   padding: 0 15px;
+    position: relative;
+  }
+   header #global nav ul li a {
+    text-align: center;
+    display: block;
+    padding: 0;
+    border-bottom: none;
+    font-size: 16px;
+  }
+  .inner {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+   footer {
+    height: 65px;
+	   padding-bottom: 0;
+  }
+   footer #footIn {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+  }
+   footer ul {
+    width: 70%;
+    justify-content: flex-start;
+  }
+   footer ul li {
+    padding: 0;
+    font-size: 14px;
+    margin-right: 20px;
+  }
+   footer p {
+    width: 30%;
+    text-align: right;
+    margin-top: 0;
+  }
+   #bodyHead {
+    width: 1000px;
+    margin: 0 auto 40px auto;
+    padding: 20px 0;
+    position: relative;
+  }
+   #bodyHead:before {
+    left: -20px;
+  }
+   #bodyHead:after {
+    right: -20px;
+  }
+   #bodyHead #breadCrumbs {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+   #bodyHead #breadCrumbs ol li {
+    font-size: 16px;
+  }
+   #bodyHead #breadCrumbs ol li a {
+    margin-right: 20px;
+  }
+   #bodyHead #breadCrumbs ol li a:after {
+    right: -15px;
+  }
+   main {
+    min-height: calc(100vh - 180px);
+  }
+.fixSns{
+	position: fixed;
+	left: auto;
+	bottom: auto;
+	right: 0;
+	width: 58px;
+	top: 200px;
+	display: block;
+	height: 174px;
+	z-index: 10;
+	border-top:none;
+	border-radius: 3px 0 0 3px;
+}
+.fixSns li{
+	width: 100%;
+	border-right: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 58px;
+	border-bottom: solid 1px #ddd;
+}
+	.fixSns li:last-of-type{
+		border-bottom: none;
+	}
+.fixSns li img{
+	height: 35px;
+	margin:0;
+}
+#shibusawaMain{
+	margin-top: -115px;
+	height:800px;
+	background: url("../img/event/shibusawa/main_bg02.webp")left bottom no-repeat,url("../img/event/shibusawa/main_bg01.webp") center top 60px no-repeat;
+	background-size: 1032px 633px,900px 449px;
+}
+#shibusawaMain #titleBox{
+	width: 1000px;
+	margin: 0 auto;
+	height: 100%;
+	position: relative;
+	background: url("../img/event/shibusawa/main_bg03.webp")left bottom no-repeat;
+	background-size: 637px 478px;
+}
+#shibusawaMain #titleBox h1{
+	margin-top: 0;
+	padding: 180px 0 0 0;
+}
+	#shibusawaMain #titleBox h1 img{
+		height: 280px;
+		width: auto;
+		margin: 0 0 0 auto;
+	}
+#shibusawaMain #titleBox p{
+	padding: 20px;
+	font-size: 30px;
+	text-align: right;
+}
+	#story{
+		padding: 80px 0;
+	}
+	#story .storyIn{
+		width: 710px;
+		margin: 0 auto;
+	}
+#story .catch span{
+	padding: 10px 20px;
+}
+#story h2{
+	font-size: 46px;
+}
+#story .info{
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+#story #storyBoard{
+	padding:40px;
+}
+#story #storyBoard h3{
+	font-size: 28px;
+}
+#story #storyBoard p{
+	font-size: 18px;
+	text-align: center;
+}
+#story #storyBoard p span br.smt{
+	display: block;
+}
+#tour{
+	width: 710px;
+	margin: 0 auto;
+	padding: 80px 0;
+}
+#tour .tourType{
+	width: 80%;
+	margin: 0 auto 40px auto;
+}
+#tour .tourType li{
+	font-size: 16px;
+	width: 30%;
+	margin-right: 5%;
+}
+#tour .tourType li p{
+	font-size: 18px;
+}
+#tour .tourType li p img{
+	height: 50px;
+	margin: 20px auto;
+}
+#tour #tourInfo{
+	background: #1a203a;
+	padding: 20px;
+	position: relative;
+}
+#tour #tourInfo:before,
+#tour #tourInfo:after,
+#tour #tourInfoIn:before,
+#tour #tourInfoIn:after{
+	width: 80px;
+	height: 80px;
+}
+#tour #tourInfo:before{
+	left: 20px;
+	top: 20px;
+	transform: scale(1,-1);
+}
+#tour #tourInfo:after{
+	right: 20px;
+	top: 20px;
+	transform: scale(-1,-1);
+}
+#tour #tourInfoIn:before{	
+	left: 20px;
+	bottom: 20px;
+}
+#tour #tourInfoIn:after{	
+	right: 20px;
+	bottom: 20px;
+	transform: scale(-1,1);
+}
+#tour #tourInfoIn{
+	padding: 30px 30px;
+}
+#tour #tourInfoIn p{
+	font-size: 18px;
+	margin: 0 5px;
+}
+#tour #tourInfoIn p span{
+	font-size:32px;
+}
+#tour #tourInfoIn table th{
+	font-size: 18px;
+	padding: 5px 0;
+}
+#tour #tourInfoIn table td{
+	font-size: 18px;
+}
+#tour #tourInfoIn table td span{
+	font-size: 24px;
+}
+#tour #tourInfoIn dl{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 40px;
+}
+#tour #tourInfoIn dt{
+	width: 240px;
+	color: #fff;
+	font-size: 16px;
+	position: relative;
+}
+#tour #tourInfoIn dt:after{
+	position: absolute;
+	display: block;
+	left: 0;
+	top: 12px;
+	content: "";
+	width: 95%;
+	height: 1px;
+	background: #fff;
+	margin-left: 0;
+}
+	#tour #tourInfoIn dt span{
+		background: #1a203a;
+		padding-right: 5%;
+		position: relative;
+		z-index: 2;
+	}
+#tour #tourInfoIn dd{
+	width: calc(100% - 240px);
+	color: #fff;
+	margin-bottom: 20px;
+}
+#tour #tourInfoIn dd br{
+	display: block;
+}
+#tour #tourInfoIn dd:last-of-type{
+	margin-bottom: 0;
+}
+#point{
+	padding: 80px 0;
+}
+	#point ul{
+		width: 1000px;
+		display: flex;
+		margin: 0 auto;
+	}
+#point li{
+	width: 31%;
+	margin-right: 3.5%;
+	margin-bottom: 0;
+}
+	#point li:last-of-type{
+		margin-right: 0;
+	}
+#point li h3{
+	font-size: 22px;
+}
+	#point li p{
+		font-size: 18px;
+	}
+#faq01{
+	padding: 80px 0;
+}
+#faq01 h2{
+	font-size: 36px;
+	margin-bottom: 30px;
+}
+#faq01 ul{
+	width: 1000px;
+	margin: 0 auto;
+}
+#faq01 ul li{
+	margin-bottom: 30px;
+}
+#faq01 ul li h3{
+	padding: 20px 20px 0 70px;
+	font-size: 22px;
+}
+#faq01  li table th{
+	font-size: 14px;
+}
+#faq01  li table td{
+	font-size: 20px;
+}
+#reserve{
+	background: #fff;
+	padding: 80px 20px;
+}
+	#reserve a{		
+	width:700px;
+		padding: 20px;
+		font-size: 24px;
+	}
+.fixReserve{
+	display: none;
+}
+}

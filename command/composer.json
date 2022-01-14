@@ -1,0 +1,27 @@
+{
+  "name": "veritrans/command_sample",
+  "description": "VeriTrans MDK command sample",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "VeriTrans",
+      "email": "noreply@veritrans.jp"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../local_packages/veritrans-tgmdk",
+      "options": {
+        "symlink": false
+      }
+    }
+  ],
+  "require": {
+    "php": "~7.4|~8.0",
+    "veritrans/tgmdk": "^1.1.5",
+    "monolog/monolog": "^2.3.2",
+    "ext-json": "*"
+  }
+}
