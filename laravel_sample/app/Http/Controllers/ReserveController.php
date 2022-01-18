@@ -324,7 +324,7 @@ class ReserveController extends Controller
         $res = $entry->update_start_date($data);
         $message = $res['message'];
 
-        $request->session()->put('message','メッセージ内容');
+        \Session::put('message', 'メッセージ内容');
         return redirect('/admin/entry/shibusawa/' . $request->id);
     }
 
