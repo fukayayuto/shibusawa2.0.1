@@ -313,6 +313,13 @@ Route::group(['middleware' => 'basicauth'], function () {
     //ステータス変更後
     Route::post('/admin/entry/status', 'EntryController@change_status_post')->name('change_status_post');
 
+    //請求ID変更
+    Route::get('/admin/entry/shibusawa/payment_id/{id}', 'EntryShibuController@shibusawa_change_payment_id');
+
+    //請求ID変更後
+    Route::post('/admin/entry/shibusawa/payment_id/', 'EntryShibuController@shibusawa_change_payment_id_post')->name('shibusawa_change_payment_id_post');
+
+
 
     //入金登録画面
     Route::get('/admin/entry/payment/{id}', 'EntryController@entry_payment')->name('entry_payment');

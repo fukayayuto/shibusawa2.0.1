@@ -124,4 +124,28 @@ class EntryShibuController extends Controller
 
         return view('admin.entry.shibusawa.create.index', compact('data', 'reserve_type_data'));
     }
+
+     //請求ID変更
+     public function shibusawa_change_payment_id($id)
+     {
+         $entry = new EntryShibu();
+         $entry_data = $entry->select_data($id);
+  
+         return view('admin.reserve.entry.shibusawa.change_payment_id', compact('entry_data'));
+     }
+ 
+     //請求ID変更後
+     public function shibusawa_change_payment_id_post(Request $request)
+     {
+         $data['id'] = $request->id;
+         $data['payment_id'] = $request->payment_id;
+ 
+         $entry = new EntryShibu();
+         $res = $entry->update_payment_id($data);
+         $message = $res['message'];
+ 
+         return redirect('/admin/entry/shibusawa/' . $request->id)->with('message', $message);
+     }
+
+    
 }

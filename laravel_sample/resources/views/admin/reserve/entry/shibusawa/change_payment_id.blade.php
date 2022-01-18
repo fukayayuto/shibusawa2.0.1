@@ -31,8 +31,8 @@
                     </tr>
                     <tr>
                         <td>請求ID(変更後)</td>
-                        <td><input type="number" id="payment_id" name="payment_id"></td>
-                        <td><button id="btn" class="btn-secondary">自動作成</button></td>
+                        <td><input type="number" id="payment_id" name="payment_id" class="form-control" required></td>
+                        <td><button id="btn" type="button" class="btn-secondary">自動作成</button></td>
                     </tr>
                    
                     <tr>
@@ -64,8 +64,13 @@
 
 <script>
     $(function() {
-        $("#payment_id").click(function() {
-            alert('uu');
+        $("#btn").click(function() {
+            const product_id = 19898247;
+            const d1 = new Date();
+            const d2 = d1.getTime();
+            const payment_id = product_id.toString(10) + d2.toString(10);
+            $("#payment_id").val("");
+            $("#payment_id").val(payment_id);
         });
     });
 </script>

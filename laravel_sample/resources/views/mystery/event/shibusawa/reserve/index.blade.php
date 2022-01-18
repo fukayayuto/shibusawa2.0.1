@@ -344,6 +344,7 @@
           }
 				}
 			},
+			
 			adult: {
 				required: true,
 			},

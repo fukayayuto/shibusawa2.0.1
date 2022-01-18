@@ -163,4 +163,25 @@ class EntryShibu extends Model
         $enrty = DB::table('entry_shibus')->orderBy('created_at', 'desc')->get();
         return $enrty;
     }
+
+     //参加日時変更
+     public function update_payment_id($data)
+     {
+         $query = EntryShibu::where('id', '=', $data['id'])->update([
+             'payment_id' => $data['payment_id'],
+         ]);
+ 
+         if (!$query) {
+             return [
+                 'message' => '請求IDの変更に失敗しました',
+                 'alert' => 'danger',
+             ];
+         } else {
+             return [
+                 'message' => '請求IDを変更しました',
+                 'alert' => 'success',
+             ];
+         }
+     }
+ 
 }
