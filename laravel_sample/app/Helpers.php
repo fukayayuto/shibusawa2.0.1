@@ -11,7 +11,7 @@ class Helpers
      */
     public static function generateOrderId(): string
     {
-        return "dummy" . time() . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
+        return "1642471464747" . time() . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
     }
 
     /**
