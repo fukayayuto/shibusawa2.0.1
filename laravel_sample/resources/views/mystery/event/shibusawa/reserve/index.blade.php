@@ -93,7 +93,7 @@
 			<div id="form">
 				<p>ご利用内容・お客様情報をご入力ください。項目は全て<span>必須</span>です。</p>
 				<form method="post" action="{{route('shibusawa_confirm')}}">
-					
+
 					@csrf
 
 
@@ -290,17 +290,17 @@
 		<!-- footer// -->
 		<footer>
 			<div id="footIn">
-			  <ul>
-				<li><a href="https://cab-station.com/company.html" target="_blank">運営会社</a></li>
-				<li><a href="/contact/">お問合せ</a></li>
-				<li><a href="https://cab-station.com/travel.html" target="_blank">インターネット旅行取引の詳細</a></li>
-				<li><a href="https://cab-station.com/stipulation.html" target="_blank">旅行業約款</a></li>
-				<li><a href="/about/term">取引条件書</a></li>
-				<li><a href="https://cab-station.com/privacy.html" target="_blank">個人情報保護方針</a></li>
-			  </ul>
-			  <p>© 2021 Cab Station Co., Ltd.</p>
+				<ul>
+					<li><a href="https://cab-station.com/company.html" target="_blank">運営会社</a></li>
+					<li><a href="/contact/">お問合せ</a></li>
+					<li><a href="https://cab-station.com/travel.html" target="_blank">インターネット旅行取引の詳細</a></li>
+					<li><a href="https://cab-station.com/stipulation.html" target="_blank">旅行業約款</a></li>
+					<li><a href="/about/term">取引条件書</a></li>
+					<li><a href="https://cab-station.com/privacy.html" target="_blank">個人情報保護方針</a></li>
+				</ul>
+				<p>© 2021 Cab Station Co., Ltd.</p>
 			</div>
-		  </footer>
+		</footer>
 
 		<!-- //footer -->
 	</div>
@@ -344,9 +344,13 @@
           }
 				}
 			},
-			
 			adult: {
 				required: true,
+				min:  {
+          depends: function (element) {
+            return 1 - ($('[name="adult"]').val() + $('[name="child"]').val() + $('[name="inf"]').val());
+          }
+				}
 			},
 			child: {
 				required: true,
@@ -402,7 +406,8 @@
 				required: '降車地は必須です。'
 			},
 			adult: {
-				required: '大人人数は必須です。'
+				required: '大人人数は必須です。' ,
+				min:'人数を入力してください'
 			},
 			child: {
 				required: '子供人数は必須です。'
@@ -437,6 +442,8 @@
 		}
   });
 	</script>
+
+
 	<script>
 		flatpickr.localize(flatpickr.l10ns.ja);
     flatpickr('.calendar input', {

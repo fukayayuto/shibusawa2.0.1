@@ -335,6 +335,7 @@ class ReserveController extends Controller
 
         $entry_data->count = $entry_data->count_1 + $entry_data->count_2 + $entry_data->count_3;
 
+       
         return view('admin.reserve.entry.shibusawa.change_count', compact('entry_data'));
     }
 
@@ -350,7 +351,9 @@ class ReserveController extends Controller
         $res = $entry->update_count($data);
         $message = $res['message'];
 
-        return redirect('admin/entry/shibusawa/' . $request->id)->with('message', $message);
+
+        $request->session()->flash('message', $message); 
+        return redirect('admin/entry/shibusawa/' . $request->id);
     }
 
     //渋沢用エントリーステータス変更
