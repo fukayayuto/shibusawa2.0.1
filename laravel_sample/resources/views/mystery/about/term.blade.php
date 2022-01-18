@@ -8,10 +8,8 @@
   <meta name="description" content="取引条件書（手配旅行・インターネット販売用）" />
   <meta name="format-detection" content="telephone=no">
   <link href="{{ asset('/css/terms.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('/css/assets.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('/css/default.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('/css/layout.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('/css/base.css') }}" rel="stylesheet" type="text/css" />
+
 
 </head>
 

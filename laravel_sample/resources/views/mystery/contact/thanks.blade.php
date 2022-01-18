@@ -75,7 +75,7 @@
 なお、ご入力いただいたメールアドレス宛に受付完了メールを配信しております。<br>
 完了メールが届かない場合、処理が正常に行われていない可能性があります。<br>
 大変お手数ですが、再度お問い合わせの手続きをお願い致します。</p>
-		  <a href="" class="blownBtn">ホームに戻る</a>
+		  <a href="http://mystery-travelagency.com/" class="blownBtn">ホームに戻る</a>
 	  </div>
   </main>
   <!-- //main --> 
