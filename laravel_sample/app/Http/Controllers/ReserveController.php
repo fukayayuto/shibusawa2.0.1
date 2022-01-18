@@ -324,7 +324,9 @@ class ReserveController extends Controller
         $res = $entry->update_start_date($data);
         $message = $res['message'];
 
-        return redirect('/admin/entry/shibusawa/' . $request->id)->with('message', $message);
+        $request->session()->flash('message', 'メッセージ内容');  
+
+        return redirect('/admin/entry/shibusawa/' . $request->id);
     }
 
     //渋沢用エントリー人数変更
@@ -353,6 +355,7 @@ class ReserveController extends Controller
 
 
         $request->session()->flash('message', $message); 
+
         return redirect('admin/entry/shibusawa/' . $request->id);
     }
 
