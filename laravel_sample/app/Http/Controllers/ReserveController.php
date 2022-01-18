@@ -326,6 +326,13 @@ class ReserveController extends Controller
 
         \Session::reflash();
         \Session::put('message', 'メッセージ内容');
+
+        $item = \Session::get('message');
+
+        var_dump($item);
+        die();
+
+
         return redirect('/admin/entry/shibusawa/' . $request->id);
     }
 
