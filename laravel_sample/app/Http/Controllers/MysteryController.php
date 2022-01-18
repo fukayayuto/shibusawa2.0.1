@@ -116,6 +116,7 @@ class MysteryController extends Controller
         $data['payment_method'] = $request->payment_method;
         $data['terms'] = $request->terms;
 
+
         return view('mystery.event.shibusawa.reserve.index', compact('data'));
     }
 
@@ -138,24 +139,10 @@ class MysteryController extends Controller
         $data['tel'] = $request->tel;
         $data['email'] = $request->email;
         $data['pref'] = $request->pref;
+        $data['payment_method'] = $request->payment_method;
         $data['address'] = $request->address;
 
-        switch ($request->payment_method) {
-            case 1:
-                $data['payment_method'] = '銀行振り込み';
-                break;
-            case 2:
-                $data['payment_method'] = 'クレジット';
-                break;
-            case 3:
-                $data['payment_method'] = 'paypay';
-                break;
-            default:
-            $data['payment_method'] = '銀行振り込み';
-                break;
-        }
-
-        session()->put('tour_data', $data);
+        // session()->put('tour_data', $data);
 
         // if ($request->payment_method == 'クレジット') {
         //     return view('card/index',compact('data'))->with(
@@ -244,18 +231,18 @@ class MysteryController extends Controller
                 break;
         }
 
-        switch ($request->pay_method) {
-            case 1:
-                $pay_method = '銀行振り込み';
+        switch ($request->payment_method) {
+            case "銀行振込":
+                $pay_method = 1;
                 break;
-            case 2:
-                $pay_method = 'クレジット';
+            case "クレジット":
+                $pay_method = 2;
                 break;
-            case 3:
-                $pay_method = 'paypay';
+            case "paypay":
+                $pay_method = 3;
                 break;
             default:
-                $pay_method = '銀行振り込み';
+                $pay_method = 1;
                 break;
         }
 
@@ -279,7 +266,7 @@ class MysteryController extends Controller
             'count_2' => $request->child,
             'count_3' => $request->inf,
             'adult_check' => $request->rep_over20,
-            'pay_method' => $request->pay_method,
+            'pay_method' => $pay_method ,
             'account_id' => $account_data->id,
             'payment_id' => $payment_id,
         ]);
@@ -316,7 +303,7 @@ class MysteryController extends Controller
         $content .= "■住所\n";
         $content .= $request->pref . $request->address . "\n\n";
         $content .= "■お支払方法\n";
-        $content .= $pay_method . "\n\n";
+        $content .= $request->payment_method . "\n\n";
         $content .= "**************************************************************\n\n";
         $content .= "株式会社キャブステーション\n\n";
         $content .= "社団法人日本旅行業協会 正会員\n";
