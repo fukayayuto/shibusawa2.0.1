@@ -5,36 +5,56 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class EntryShibu extends Model
+
+class Entry extends Model
 {
 
     protected $fillable = [
-        'start_date', 'start_time', 'start_station', 'finish_station', 'start_place', 'finish_place', 'count_1', '	count_2', 'count_3', 'adult_check', 'pay_method', 'account_id',
+        'account_id', 'pay_method', 'reserve_id', 'count_1', 'count_2', 'count_3', 'adult_check',
     ];
 
-    public function get_data_lastest()
+    //全エントリー取得
+    public function get_data_all()
     {
-        $reserve = DB::table('entry_shibus')->get();
-        return $reserve;
+        $enrty = DB::table('entries')->orderBy('created_at', 'desc')->get();
+        return $enrty;
     }
 
-    public function select_data($id)
+    //エントリー検索
+    public function select_data_from_revervation_id($reverve_id)
     {
-        $reserve = DB::table('entry_shibus')->find($id);
-        return $reserve;
+        $enrty = Entry::where('reserve_id', '=', $reverve_id)->get();
+
+        return $enrty;
+    }
+
+    //個別エントリー取得
+    public function select_data($entry_id)
+    {
+        $enrty = DB::table('entries')->find($entry_id);
+
+        return $enrty;
+    }
+
+    //アカウントから取得
+    public function select_data_from_account($account_id)
+    {
+        $enrty = Entry::where('account_id', '=', $account_id)->get();
+
+        return $enrty;
     }
 
     //確定のエントリー取得
     public function get_data_status_confirm()
     {
-        $enrty = DB::table('entry_shibus')->where('status', '=', 1)->orderBy('created_at', 'desc')->get();
+        $enrty = DB::table('entries')->where('status', '=', 1)->orderBy('created_at', 'desc')->get();
         return $enrty;
     }
 
     //参加日時変更
     public function update_start_date($data)
     {
-        $query = EntryShibu::where('id', '=', $data['id'])->update([
+        $query = Entry::where('id', '=', $data['id'])->update([
             'start_date' => $data['start_date'],
             'start_time' => $data['start_time']
         ]);
@@ -55,7 +75,7 @@ class EntryShibu extends Model
     //参加日時変更
     public function update_count($data)
     {
-        $query = EntryShibu::where('id', '=', $data['id'])->update([
+        $query = Entry::where('id', '=', $data['id'])->update([
             'count_1' => $data['count_1'],
             'count_2' => $data['count_2'],
             'count_3' => $data['count_3'],
@@ -77,7 +97,7 @@ class EntryShibu extends Model
     //ステータス変更
     public function update_status($data)
     {
-        $query = EntryShibu::where('id', '=', $data['id'])->update([
+        $query = Entry::where('id', '=', $data['id'])->update([
             'status' => $data['status'],
         ]);
 
@@ -94,34 +114,31 @@ class EntryShibu extends Model
         }
     }
 
-     //ステータス変更
-     public function update_pickup($data)
-     {
-         $query = EntryShibu::where('id', '=', $data['id'])->update([
-             'start_station' => $data['start_station'],
-             'start_place' => $data['start_place'],
-             'finish_station' => $data['finish_station'],
-             'finish_place' => $data['finish_place'],
-         ]);
- 
-         if (!$query) {
-             return [
-                 'message' => '乗車、降車場所の変更に失敗しました',
-                 'alert' => 'danger',
-             ];
-         } else {
-             return [
-                 'message' => '乗車、降車場所を変更しました',
-                 'alert' => 'success',
-             ];
-         }
-     }
+    //予約束の変更
+    public function reschedule($data)
+    {
+        $query = Entry::where('id', '=', $data['id'])->update([
+            'reserve_id' => $data['reserve_id'],
+        ]);
+
+        if (!$query) {
+            return [
+                'message' => '予約日時の変更に失敗しました',
+                'alert' => 'danger',
+            ];
+        } else {
+            return [
+                'message' => '予約日時の変更しました',
+                'alert' => 'success',
+            ];
+        }
+    }
 
     //入金登録
     public function payment_store($data)
     {
         $date = date('Y-m-d G:i');
-        $query = EntryShibu::where('id', '=', $data['id'])->update([
+        $query = Entry::where('id', '=', $data['id'])->update([
             'payment' => $data['payment'],
             'payment_date' => $date,
         ]);
@@ -137,29 +154,5 @@ class EntryShibu extends Model
                 'alert' => 'success',
             ];
         }
-    }
-
-       //確定メール送信
-       public function updateConfirmFlg($entry_id)
-       {
-           $date = date('Y-m-d G:i');
-           $query = EntryShibu::where('id', '=', $entry_id)->update([
-               'confirm' => 1,
-               'updated_at' => $date,
-           ]);
-       }
-
-    //アカウントからエントリー検索
-    public function select_data_from_account($account_id)
-    {
-        $enrty = EntryShibu::where('account_id', '=', $account_id)->get();
-        return $enrty;
-    }
-
-    //全エントリー取得
-    public function get_data_all()
-    {
-        $enrty = DB::table('entry_shibus')->orderBy('created_at', 'desc')->get();
-        return $enrty;
     }
 }

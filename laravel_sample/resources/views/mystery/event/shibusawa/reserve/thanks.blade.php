@@ -85,7 +85,7 @@
           ご入金確認後、弊社よりお送りいたします<span class="bold">【ご予約確定メール】</span>をもって、予約確定とさせていただきます。<br>
           2営業日経っても弊社からのメールが届かない場合は、大変お手数ではございますが、再度お問い合わせの手続きをお願いいたします。
         </p>
-        <a href="" class="blownBtn">ホームに戻る</a>
+        <a href="{{route('shibusawa_reserve')}}" class="blownBtn">ホームに戻る</a>
       </div>
     </main>
     <!-- //main -->

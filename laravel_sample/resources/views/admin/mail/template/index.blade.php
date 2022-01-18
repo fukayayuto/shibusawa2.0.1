@@ -38,7 +38,7 @@
                             <td>{{ $val->title }}</td>
                             <td>{!! nl2br(e($val->content)) !!}</td>
                             <td><a href="/admin/mail/template/{{ $val->id }}"><button type="button"
-                                        class="btn btn-primary">編集</button></a></td>
+                                        class="btn btn-primary">詳細</button></a></td>
                         </tr>
                     @endforeach
                 @endif

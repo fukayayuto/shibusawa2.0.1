@@ -16,8 +16,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 
-    <link href='{{ asset('fullcalendar-5.10.1/lib/main.css') }}' rel='stylesheet' />
-    <script src='{{ asset('fullcalendar-5.10.1/lib/main.js') }}'></script>
+    <link href='{{ asset('/fullcalendar-5.10.1/lib/main.css') }}' rel='stylesheet' />
+    <script src='{{ asset('/fullcalendar-5.10.1/lib/main.js') }}'></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -37,7 +37,7 @@
                     // list: 'リスト'
                 },
                 noEventsContent: 'スケジュールはありません',
-                events: '/admin/shibusawa/set_data'
+                events: '/admin/shibusawa/set_data',
 
             });
             calendar.render();

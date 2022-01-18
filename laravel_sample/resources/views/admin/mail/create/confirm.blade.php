@@ -20,7 +20,7 @@
                 <input type="hidden" name="adress" id="adress" value="{{ $data['adress'] }}">
                 <input type="hidden" name="title" id="title" value="{{ $data['title'] }}">
                 <input type="hidden" name="content" id="content" value="{{ $data['content'] }}">
-
+                <input type="hidden" name="s_confirm_flg" id="s_confirm_flg" value="{{ $data['s_confirm_flg'] }}">
 
                 <tbody>
 
@@ -54,7 +54,8 @@
                         <input type="hidden" name="adress" id="adress" value="{{ $data['adress'] }}">
                         <input type="hidden" name="title" id="title" value="{{ $data['title'] }}">
                         <input type="hidden" name="content" id="content" value="{{ $data['content'] }}">
-
+                        <input type="hidden" name="s_confirm_flg" id="s_confirm_flg" value="{{ $data['s_confirm_flg'] }}">
+                        
                         <button type="submit" class="btn btn-secondary mt-18">修正</button>
                     </form>
                 </td>

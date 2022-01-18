@@ -52,6 +52,7 @@
                     <td>{{ $template_data->created_at }}</td>
                 </tr>
 
+                @if($template_data->edit_flg == 0)
 
                 <tr class=".border.border-bottom-0">
                     <td></td>
@@ -67,6 +68,8 @@
                         <button class="btn btn-danger" id="delete_btn">削除する</button>
                     </td>
                 </tr>
+
+                @endif
 
         </table>
     </div>

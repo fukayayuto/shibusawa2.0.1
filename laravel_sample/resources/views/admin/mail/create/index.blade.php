@@ -45,6 +45,9 @@
                 @csrf
                 <input type="hidden" name="account_id" id="account_id" value="{{ $data['account_id'] }}">
                 <input type="hidden" name="adress" id="adress" value="{{ $data['adress'] }}">
+                @if(!empty($data['s_confirm_flg']))
+                <input type="hidden" name="s_confirm_flg" id="s_confirm_flg" value="{{ $data['s_confirm_flg'] }}">
+                @endif
 
                 <tbody>
 

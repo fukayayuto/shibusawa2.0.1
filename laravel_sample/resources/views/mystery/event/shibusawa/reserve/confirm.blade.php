@@ -99,7 +99,7 @@
 
 			  <ul class="submitBtn">
 			    <li>
-            <form method="post" action="{{route('shibusawa_thanks')}}">
+            <form method="post" action="{{route('shibusawa_reserve_store')}}">
             @csrf
               <input type="hidden" name="tour_date" id="tour_date" value="{{$data['tour_date']}}">
               <input type="hidden" name="departure_h" id="departure_h" value="{{$data['departure_h']}}">
@@ -119,7 +119,11 @@
               <input type="hidden" name="pref" id="pref" value="{{$data['pref']}}">
               <input type="hidden" name="address" id="address" value="{{$data['address']}}">
               <input type="hidden" name="payment_method" id="payment_method" value="{{$data['payment_method']}}">
+              @if($data['payment_method'] == 'クレジット')
+                <input type="submit" value="支払い画面へ" id="submit_btn">
+              @else
               <input type="submit" value="予約する" id="submit_btn">
+              @endif             
             </form>
           </li>
 				  <li>
@@ -178,6 +182,7 @@
 <script src="{{ asset('/js/common.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 @include('common.inc.body_after')
 <script>
     flatpickr.localize(flatpickr.l10ns.ja);
@@ -194,5 +199,16 @@
   });
 });
 </script>
+
+<script>
+   $(function () {
+     var err = <?php echo $err;?>;
+     if(err == 1){
+      swal('決済に失敗しました。\nお手数ではございますが、もう一度実施をお願い致します。');
+     }
+});
+</script>
+
+
 </body>
 </html>

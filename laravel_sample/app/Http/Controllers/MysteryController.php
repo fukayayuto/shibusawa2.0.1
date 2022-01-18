@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Accounts;
 use App\EntryShibu;
 use App\Helpers;
+use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Psr\Log\LoggerInterface;
@@ -19,6 +20,7 @@ use tgMdk\dto\CardAuthorizeResponseDto;
 use tgMdk\TGMDK_Config;
 use tgMdk\TGMDK_Logger;
 use tgMdk\TGMDK_Transaction;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 
 class MysteryController extends Controller
@@ -88,7 +90,7 @@ class MysteryController extends Controller
         $data['payment_method'] = $request->payment_method;
         $data['terms'] = $request->terms;
 
-        return view('mystery.event.shibusawa.reserve.confirm', compact('data'));
+        return view('mystery.event.shibusawa.reserve.confirm', compact('data'))->with('err',0);
     }
 
     public function shibusawa_fix(Request $request)
@@ -117,9 +119,8 @@ class MysteryController extends Controller
         return view('mystery.event.shibusawa.reserve.index', compact('data'));
     }
 
-    public function shibusawa_thanks(Request $request)
+    public function shibusawa_reserve_store(Request $request)
     {
-
         $data = [];
         $data['tour_date'] = $request->tour_date;
         $data['departure_h'] = $request->departure_h;
@@ -140,19 +141,19 @@ class MysteryController extends Controller
         $data['address'] = $request->address;
         $data['payment_method'] = $request->payment_method;
 
+        session()->put('tour_data', $data);
 
-        if ($request->payment_method == '銀行振込') {
-            return view('card/index', compact('data'))->with(
-                [
-                    'tokenApiKey' => Config::get('sample_setting.token.token_api_key'),
-                    "amount" => "18000",
-                    "orderId" => Helpers::generateOrderId(),
-                ]
-            );
-        }
+        // if ($request->payment_method == 'クレジット') {
+        //     return view('card/index',compact('data'))->with(
+        //         [
+        //             'tokenApiKey' => Config::get('sample_setting.token.token_api_key'),
+        //             "amount" => "18000",
+        //             "orderId" => Helpers::generateOrderId(),
+        //         ]
+        //     );
+        // }
 
-
-
+    
         // $template = new MailTemplate();
         // $method = '[渋沢用]予約の確定メール(ユーザー送信用)';
         // $template_data = $template->select_data_from_method($method);
@@ -200,16 +201,12 @@ class MysteryController extends Controller
         // ];
         // $content  = str_replace($search_arr, $replace_arr, $template_data->content);
 
-        // $mail_data = [];
-        // $mail_data['email'] = $request->email;
-        // $mail_data['subject'] = $template_data->subject;
-        // $mail_data['content'] = $content;
 
         //管理者に対してメール
-        Mail::send(new AdminMail($data));
+        // Mail::send(new AdminMail($data));
 
         //予約者に対してメール
-        Mail::send(new SendMail($data));
+        // Mail::send(new SendMail($data));
 
 
         $account = new Accounts();
@@ -233,11 +230,25 @@ class MysteryController extends Controller
                 break;
         }
 
+        switch ($request->pay_method) {
+            case '銀行振り込み':
+                $pay_method = 1;
+                break;
+            case 'クレジット':
+                $pay_method = 2;
+                break;
+            default:
+                $pay_method = 3;
+                break;
+        }
+
         $search_arr  = ["年", "月", "日"];
         $replace_arr = ["-", "-", ""];
         $tour_date  = str_replace($search_arr, $replace_arr, $request->tour_date);
 
         $start_time = $request->departure_h . ':' . $request->departure_i;
+
+        $payment_id = Helpers::generateOrderId();
 
         $entry = new EntryShibu();
         $res = $entry->create([
@@ -251,12 +262,10 @@ class MysteryController extends Controller
             'count_2' => $request->child,
             'count_3' => $request->inf,
             'adult_check' => $request->rep_over20,
-            'pay_method' => 1,
+            'pay_method' => $pay_method,
             'account_id' => $account_data->id,
+            'payment_id' => $payment_id,
         ]);
-
-
-
 
         $title = '「謎解キ旅行社」ご依頼内容の確認（自動返信メール）';
 
@@ -308,6 +317,12 @@ class MysteryController extends Controller
             'content' => $content,
         ]);
 
+        return redirect()->action('MysteryController@shibusawa_thanks');
+        exit;
+    }
+
+    public function shibusawa_thanks()
+    {
         return view('mystery.event.shibusawa.reserve.thanks');
     }
 

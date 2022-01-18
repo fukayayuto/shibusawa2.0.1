@@ -136,6 +136,8 @@ class MailController extends Controller
     }
 
 
+
+
     //メール送信作成確認画面
     public function mail_create_confirm(Request $request)
     {
@@ -145,6 +147,11 @@ class MailController extends Controller
         $data['adress'] = $request->adress;
         $data['title'] = $request->title;
         $data['content'] = $request->content;
+
+        $data['s_confirm_flg'] = 0;
+        if(!empty($request->s_confirm_flg)){
+            $data['s_confirm_flg'] = $request->s_confirm_flg;
+        }
 
         return view('admin.mail.create.confirm', compact('data'));
     }
@@ -157,6 +164,11 @@ class MailController extends Controller
         $data['adress'] = $request->adress;
         $data['title'] = $request->title;
         $data['content'] = $request->content;
+
+        $data['s_confirm_flg'] = 0;
+        if(!empty($request->s_confirm_flg)){
+            $data['s_confirm_flg'] = $request->s_confirm_flg;
+        }
 
         return view('admin.mail.create.index', compact('data'));
     }
@@ -178,7 +190,7 @@ class MailController extends Controller
         $data['email'] = $account_data->email;
 
         //予約者に対してメール
-        \Illuminate\Support\Facades\Mail::send(new SendMail($data));
+        // \Illuminate\Support\Facades\Mail::send(new SendMail($data));
 
         $mail = new Mail();
 
@@ -193,6 +205,11 @@ class MailController extends Controller
         } else {
             $message = 'メール履歴登録に失敗しました';
         }
+
+     if(!empty($request->s_confirm_flg)){
+         $entry = new EntryShibu();
+         $entry->updateConfirmFlg($request->s_confirm_flg);
+     }
 
         return redirect('admin/mail')->with('message', $message);
     }
@@ -378,4 +395,196 @@ class MailController extends Controller
 
         return redirect('/admin/mail/template')->with('message', $message);
     }
+
+
+    //予約確定メール送信作成画面
+    public function mail_create_shibusawa_confirm($entry_id)
+    {
+        $entry = new EntryShibu();
+        $entry_data = $entry->select_data($entry_id);
+
+        $account = new Accounts();
+        $account_data = $account->select_data($entry_data->account_id);
+
+        $tmp_start_date = new DateTime($entry_data->start_date);
+        $entry_data->start_date = $tmp_start_date->format('Y年m月d日');
+
+        if($entry_data->adult_check == 1){
+            $entry_data->adult_check = 'はい';
+        }else{
+            $entry_data->adult_check = 'いいえ';
+        }
+
+        switch ($entry_data->pay_method) {
+            case 1:
+                $entry_data->pay_method = '銀行振り込み';
+                break;
+            case 2:
+                $entry_data->pay_method = 'クレジット';
+                break;
+            case 3:
+                $entry_data->pay_method = 'paypay';
+                break;
+            default:
+                $entry_data->pay_method = '銀行振り込み';
+                break;
+        }
+
+
+        $method = '確定メール送信用(渋沢)';
+        $mail_template = new MailTemplate();
+        $mail_template_data = $mail_template->select_data_from_method($method);
+
+        $search_arr  = [ 
+                        "{{start_date}}", 
+                        "{{start_time}}",
+                        "{{start_station}}",
+                        "{{start_place}}",
+                        "{{finish_station}}",
+                        "{{finish_place}}",
+                        "{{adult}}",
+                        "{{child}}",
+                        "{{inf}}",
+                        "{{adult_check}}",
+                        "{{name}}",
+                        "{{name_kana}}",
+                        "{{phone}}",
+                        "{{email}}",
+                        "{{pref}}",
+                        "{{adress}}",
+                        "{{payment_method}}",
+                        ];
+
+        $replace_arr  = [
+                        $entry_data->start_date, 
+                        $entry_data->start_time, 
+                        $entry_data->start_station, 
+                        $entry_data->start_place, 
+                        $entry_data->finish_station, 
+                        $entry_data->finish_place, 
+                        $entry_data->count_1, 
+                        $entry_data->count_2, 
+                        $entry_data->count_3, 
+                        $entry_data->adult_check, 
+                        $account_data->name,
+                        $account_data->name_kana,
+                        $account_data->phone,
+                        $account_data->email,
+                        $account_data->pref,
+                        $account_data->adress,
+                        $entry_data->pay_method,
+                        ];             
+
+
+        $mail_template_data->content  = str_replace($search_arr, $replace_arr, $mail_template_data->content);
+
+
+        $data = [];
+        $data['account_id'] = $account_data->id;
+        $data['email'] = $account_data->email;
+        $data['account_name'] = $account_data->name;
+        $data['adress'] = $data['email'] . ' ( ' . $data['account_name'] . ' )';
+        $data['title'] = $mail_template_data->title;
+        $data['content'] = $mail_template_data->content;
+        $data['s_confirm_flg'] = $entry_id;
+
+        return view('admin.mail.create.index', compact('data'));
+    }
+
+     //予約確定メール送信作成画面
+     public function mail_create_shibusawa_payment($entry_id)
+     {
+         $entry = new EntryShibu();
+         $entry_data = $entry->select_data($entry_id);
+ 
+         $account = new Accounts();
+         $account_data = $account->select_data($entry_data->account_id);
+ 
+         $tmp_start_date = new DateTime($entry_data->start_date);
+         $entry_data->start_date = $tmp_start_date->format('Y年m月d日');
+ 
+         if($entry_data->adult_check == 1){
+             $entry_data->adult_check = 'はい';
+         }else{
+             $entry_data->adult_check = 'いいえ';
+         }
+ 
+         switch ($entry_data->pay_method) {
+             case 1:
+                 $entry_data->pay_method = '銀行振り込み';
+                 break;
+             case 2:
+                 $entry_data->pay_method = 'クレジット';
+                 break;
+             case 3:
+                 $entry_data->pay_method = 'paypay';
+                 break;
+             default:
+                 $entry_data->pay_method = '銀行振り込み';
+                 break;
+         }
+ 
+ 
+         $method = '確定メール送信用(渋沢)';
+         $mail_template = new MailTemplate();
+         $mail_template_data = $mail_template->select_data_from_method($method);
+ 
+         $search_arr  = [ 
+                         "{{start_date}}", 
+                         "{{start_time}}",
+                         "{{start_station}}",
+                         "{{start_place}}",
+                         "{{finish_station}}",
+                         "{{finish_place}}",
+                         "{{adult}}",
+                         "{{child}}",
+                         "{{inf}}",
+                         "{{adult_check}}",
+                         "{{name}}",
+                         "{{name_kana}}",
+                         "{{phone}}",
+                         "{{email}}",
+                         "{{pref}}",
+                         "{{adress}}",
+                         "{{payment_method}}",
+                         ];
+ 
+         $replace_arr  = [
+                         $entry_data->start_date, 
+                         $entry_data->start_time, 
+                         $entry_data->start_station, 
+                         $entry_data->start_place, 
+                         $entry_data->finish_station, 
+                         $entry_data->finish_place, 
+                         $entry_data->count_1, 
+                         $entry_data->count_2, 
+                         $entry_data->count_3, 
+                         $entry_data->adult_check, 
+                         $account_data->name,
+                         $account_data->name_kana,
+                         $account_data->phone,
+                         $account_data->email,
+                         $account_data->pref,
+                         $account_data->adress,
+                         $entry_data->pay_method,
+                         ];             
+ 
+ 
+         $mail_template_data->content  = str_replace($search_arr, $replace_arr, $mail_template_data->content);
+ 
+ 
+         $data = [];
+         $data['account_id'] = $account_data->id;
+         $data['email'] = $account_data->email;
+         $data['account_name'] = $account_data->name;
+         $data['adress'] = $data['email'] . ' ( ' . $data['account_name'] . ' )';
+         $data['title'] = $mail_template_data->title;
+         $data['content'] = $mail_template_data->content;
+         $data['s_confirm_flg'] = $entry_id;
+ 
+         return view('admin.mail.create.index', compact('data'));
+     }
+
+    
+   
 }

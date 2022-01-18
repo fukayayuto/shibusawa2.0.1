@@ -9,7 +9,7 @@ class EntryShibu extends Model
 {
 
     protected $fillable = [
-        'start_date', 'start_time', 'start_station', 'finish_station', 'start_place', 'finish_place', 'count_1', '	count_2', 'count_3', 'adult_check', 'pay_method', 'account_id',
+        'start_date', 'start_time', 'start_station', 'finish_station', 'start_place', 'finish_place', 'count_1', '	count_2', 'count_3', 'adult_check', 'pay_method', 'account_id','payment_id', 'payment', 'payment_date',
     ];
 
     public function get_data_lastest()
@@ -144,10 +144,11 @@ class EntryShibu extends Model
        {
            $date = date('Y-m-d G:i');
            $query = EntryShibu::where('id', '=', $entry_id)->update([
-               'confirm' => 1,
+               'confirm_flg' => 1,
                'updated_at' => $date,
            ]);
        }
+
 
     //アカウントからエントリー検索
     public function select_data_from_account($account_id)

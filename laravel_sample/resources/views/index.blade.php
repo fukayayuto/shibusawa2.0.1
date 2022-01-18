@@ -63,7 +63,7 @@
 			<div id="topTour">
 				<h1>おすすめ謎解きツアー</h1>
 				<div id="tourThumbs">
-					<div><a href="//event/shibusawa/">
+					<div><a href="/event/shibusawa/reserve/">
 							<div class="ph"><img src="{{ asset('/img/top/plan01_thumb.webp') }}" alt="渋沢栄一の真実" /></div>
 							<p>2024年から新1万円札の顔になることがきまった渋沢栄一。「日本資本主義の父」とも呼ばれる彼は一体何を成し遂げたのか。貸切タクシーで巡るプライベートな謎解きツアーへぜひご参加ください。
 							</p>

@@ -1,6 +1,7 @@
 @extends('layouts.parents')
 @section('title', 'VeriTrans 4G - クレジットカード決済')
 @section('content')
+<link rel="stylesheet" href="{{asset('css/lording.css')}}">
 <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -11,7 +12,6 @@
             <li class="list-group-item d-flex justify-content-between">
                 <div>
                     <h6 class="my-0">渋沢ツアー</h6>
-                    <small class="text-muted">4G-S-001</small>
                 </div>
                 <span class="text-muted">&yen;{{ $amount }}</span>
             </li>
@@ -35,11 +35,11 @@
 
         <h5 class="mb-3 p-2 rounded bg-primary text-light">カード決済：決済請求</h5>
         <div class="row">
-            <div class="col-3 col-sm-3"><img src="{{asset(" images/Card_Visa.png")}}" alt="VISA"></div>
-            <div class="col-2 col-sm-2"><img src="{{asset(" images/Card_MasterCard.png")}}" alt="MasterCard"></div>
-            <div class="col-2 col-sm-2"><img src="{{asset(" images/Card_JCB.gif")}}" alt="JCB"></div>
-            <div class="col-2 col-sm-2"><img src="{{asset(" images/Card_Amex.gif")}}" alt="Amex"></div>
-            <div class="col-3 col-sm-3"><img src="{{asset(" images/Card_DinersClub.png")}}" alt="DinersClub"></div>
+            <div class="col-3 col-sm-3"><img src="{{asset("/images/Card_Visa.png")}}" alt="VISA"></div>
+            <div class="col-2 col-sm-2"><img src="{{asset("/images/Card_MasterCard.png")}}" alt="MasterCard"></div>
+            <div class="col-2 col-sm-2"><img src="{{asset("/images/Card_JCB.gif")}}" alt="JCB"></div>
+            <div class="col-2 col-sm-2"><img src="{{asset("/images/Card_Amex.gif")}}" alt="Amex"></div>
+            <div class="col-3 col-sm-3"><img src="{{asset("/images/Card_DinersClub.png")}}" alt="DinersClub"></div>
         </div>
         <hr class="mb-4">
         <form method="post" action="{{ url('/card') }}" class="needs-validation" onclick="return false;" id="token_form"
@@ -69,6 +69,7 @@
             <input type="hidden" name="address" id="address" value="{{$data['address']}}">
             <input type="hidden" name="payment_method" id="payment_method" value="{{$data['payment_method']}}">
 
+            
 
             <div class="mb-3">
                 <label for="orderId">取引ID</label>
@@ -133,4 +134,38 @@
     </div>
 
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(function () {
+    $('form').submit(function () {
+      $(this).find(':submit').prop('disabled', 'true');
+    });
+  });
+  </script>
+<script>
+$(function() {
+  var h = $(window).height();
+  
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).load(function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10000);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
 @endsection

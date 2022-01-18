@@ -57,7 +57,7 @@
                                 <td><button type="button" class="btn btn-danger">キャンセル</button></td>
                             @endif
 
-                            <td><a href="/entry/detail/{{ $val['id'] }}"><button type="button"
+                            <td><a href="/admin/entry/detail/{{ $val['id'] }}"><button type="button"
                                         class="btn btn-primary">詳細</button></a>
                             </td>
 
@@ -103,7 +103,7 @@
                                 <td><button type="button" class="btn btn-danger">キャンセル</button></td>
                             @endif
 
-                            <td><a href="/entry/shibusawa/{{ $value['id'] }}"><button type="button"
+                            <td><a href="/admin/entry/shibusawa/{{ $value['id'] }}"><button type="button"
                                         class="btn btn-primary">詳細</button></a>
                             </td>
 

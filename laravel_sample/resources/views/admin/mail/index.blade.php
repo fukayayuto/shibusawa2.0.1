@@ -18,7 +18,7 @@
     <table class="table">
         <thead class="thead-light">
             <tr>
-                <th>送信日時</th>
+                <th style="width: 15%">送信日時</th>
                 <th>宛先</th>
                 <th>件名</th>
                 <th>本文</th>

@@ -237,6 +237,7 @@
 							<div class="icoSelect">
 								<select name="payment_method">
 									<option value="銀行振込">銀行振込</option>
+									<option value="クレジット">クレジット</option>
 								</select>
 							</div>
 						</dd>
