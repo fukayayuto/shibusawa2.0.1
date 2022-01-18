@@ -119,11 +119,9 @@
               <input type="hidden" name="pref" id="pref" value="{{$data['pref']}}">
               <input type="hidden" name="address" id="address" value="{{$data['address']}}">
               <input type="hidden" name="payment_method" id="payment_method" value="{{$data['payment_method']}}">
-              @if($data['payment_method'] == 'クレジット')
-                <input type="submit" value="支払い画面へ" id="submit_btn">
-              @else
+           
               <input type="submit" value="予約する" id="submit_btn">
-              @endif             
+                      
             </form>
           </li>
 				  <li>
