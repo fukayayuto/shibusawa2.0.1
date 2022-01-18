@@ -15,8 +15,9 @@
     <meta property="og:image" content="http://mystery-travelagency.com/common/img/shared/og_image.jpg">
     <meta property="og:site_name" content="いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
     <meta property="og:description" content="各種謎解きツアーを企画、運営している謎解キ旅行社の公式サイトです。謎解キ旅行社の理念やポリシーが気になる方はこちらからご確認ください。" />
-    <link rel="stylesheet" href="../common/css/assets.css">
-    <link rel="stylesheet" href="../common/css/reset.css" type="text/css" media="screen">
+
+    <link href="{{ asset('/css/assets.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/reset.css') }}" rel="stylesheet" type="text/css" media="screen"/>
 
     <link href="{{ asset('/css/default.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/css/layout.css') }}" rel="stylesheet" type="text/css" />
