@@ -9,7 +9,9 @@
         <a href="/admin/reserve/2631"><button type="button" class="btn btn-primary">申し込み一覧へ</button></a>
     </div>
 </div>
-
+メッセージ
+{{ session('message') }}
+メッセージ
 @if (session('message'))
 <div class="alert alert-success">
     {{ session('message') }}
