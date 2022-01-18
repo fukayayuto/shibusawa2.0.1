@@ -11,11 +11,11 @@
 	<meta name="facebook-domain-verification" content="paibjcw155qyu4n7b68ioyq206ibhf" />
 	<meta property="og:title" content="いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="http://odekake-ashi.com/">
-	<meta property="og:image" content="http://odekake-ashi.com/common/img/shared/og_image.jpg">
+	<meta property="og:url" content="http://mystery-travelagency.com/">
+	<meta property="og:image" content="http://mystery-travelagency.com/common/img/shared/og_image.jpg">
 	<meta property="og:site_name" content="いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
 	<meta property="og:description" content="普通の謎解きとは何が違うの？謎解キ旅行社では今までになかった全く新しい謎解き観光エンターテインメントを提供しています。" />
-	<link rel="canonical" href="http://odekake-ashi.com/">
+	<link rel="canonical" href="http://mystery-travelagency.com/">
 	<link href="{{ asset('/css/default.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('/css/layout.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('/css/base.css') }}" rel="stylesheet" type="text/css" />

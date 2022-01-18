@@ -19,11 +19,11 @@
 	<meta name="keywords" content="旅行,謎解き,脱出,ゲーム" />
 	<meta property="og:title" content="渋沢栄一の真実ご予約｜いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="http://odekake-ashi.com/event/shibusawa/reserve/">
-	<meta property="og:image" content="http://odekake-ashi.com/img/shared/og_image.jpg">
+	<meta property="og:url" content="http://mystery-travelagency.com/event/shibusawa/reserve/">
+	<meta property="og:image" content="http://mystery-travelagency.com/img/shared/og_image.jpg">
 	<meta property="og:site_name" content="いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
 	<meta property="og:description" content="渋沢栄一の真実予約ページです。【謎解キ旅行社】" />
-	<link rel="canonical" href="http://odekake-ashi.com/event/shibusawa/reserve/">
+	<link rel="canonical" href="http://mystery-travelagency.com/event/shibusawa/reserve/">
 	<link href="{{ asset('/css/default.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('/css/layout.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('/css/base.css') }}" rel="stylesheet" type="text/css" />
@@ -51,7 +51,7 @@
 	<div id="wrapper">
 		<!-- header// -->
 		<header>
-			<div id="logo"><a href="http://odekake-ashi.com/"><img src="{{ asset('/img/shared/logo.svg') }}"
+			<div id="logo"><a href="http://mystery-travelagency.com/"><img src="{{ asset('/img/shared/logo.svg') }}"
 						alt="謎解キ旅行社" /></div>
 			<div id="global">
 				<!--<ul id="sns">
@@ -75,12 +75,12 @@
 				<div id="breadCrumbs">
 					<ol itemscope="" itemtype="https://schema.org/BreadcrumbList">
 						<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a
-								href="http://odekake-ashi.com/" itemprop="item"><span
+								href="http://mystery-travelagency.com/" itemprop="item"><span
 									itemprop="name">HOME</span></a>
 							<meta itemprop="position" content="1">
 						</li>
 						<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a
-								href="http://odekake-ashi.com/event/shibusawa/" itemprop="item"><span
+								href="http://mystery-travelagency.com/event/shibusawa/" itemprop="item"><span
 									itemprop="name">渋沢栄一の真実</span></a>
 							<meta itemprop="position" content="2">
 						</li>

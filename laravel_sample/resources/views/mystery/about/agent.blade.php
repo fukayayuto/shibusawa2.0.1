@@ -10,11 +10,11 @@
   <meta name="keywords" content="旅行,謎解き,脱出,ゲーム" />
   <meta property="og:title" content="エージェント募集｜いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="http://odekake-ashi.com/about/agent.html">
-  <meta property="og:image" content="http://odekake-ashi.com/common/img/shared/og_image.jpg">
+  <meta property="og:url" content="http://mystery-travelagency.com/about/agent.html">
+  <meta property="og:image" content="http://mystery-travelagency.com/common/img/shared/og_image.jpg">
   <meta property="og:site_name" content="いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
   <meta property="og:description" content="謎解キ旅行社では謎クリエイターを随時募集しております。今までにない「謎解きツアー」を弊社ツアープランナーと一緒に作成してみませんか？" />
-  <link rel="canonical" href="http://odekake-ashi.com/about/agent.html">
+  <link rel="canonical" href="http://mystery-travelagency.com/about/agent.html">
   <link href="{{ asset('/css/default.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('/css/shibusawa.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('/css/base.css') }}" rel="stylesheet" type="text/css" />
@@ -36,7 +36,7 @@
   <div id="wrapper">
     <!-- header// -->
     <header>
-      <div id="logo"><a href="http://odekake-ashi.com/"><img src="{{ asset('/img/shared/logo.svg') }}"
+      <div id="logo"><a href="http://mystery-travelagency.com/"><img src="{{ asset('/img/shared/logo.svg') }}"
             alt="謎解キ旅行社" /></div>
       <div id="global">
         <!--<ul id="sns">
@@ -60,11 +60,11 @@
         <div id="breadCrumbs">
           <ol itemscope="" itemtype="https://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a
-                href="http://odekake-ashi.com/" itemprop="item"><span itemprop="name">HOME</span></a>
+                href="http://mystery-travelagency.com/" itemprop="item"><span itemprop="name">HOME</span></a>
               <meta itemprop="position" content="1">
             </li>
             <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a
-                href="http://odekake-ashi.com/about" itemprop="item"><span itemprop="name">謎解キ旅行社について</span></a>
+                href="http://mystery-travelagency.com/about" itemprop="item"><span itemprop="name">謎解キ旅行社について</span></a>
               <meta itemprop="position" content="2">
             </li>
             <li>エージェント募集</li>

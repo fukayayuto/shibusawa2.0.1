@@ -8,11 +8,11 @@
 <meta name="keywords" content="旅行,謎解き,脱出,ゲーム" />
 <meta property="og:title" content="お問い合わせ｜いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://odekake-ashi.com/contact/">
-<meta property="og:image" content="http://odekake-ashi.com/common/img/shared/og_image.jpg">
+<meta property="og:url" content="http://mystery-travelagency.com/contact/">
+<meta property="og:image" content="http://mystery-travelagency.com/common/img/shared/og_image.jpg">
 <meta property="og:site_name" content="いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
 <meta property="og:description" content="お問い合わせページです。【謎解キ旅行社】" />
-<link rel="canonical" href="http://odekake-ashi.com/contact/">
+<link rel="canonical" href="http://mystery-travelagency.com/contact/">
 <link href="{{ asset('/css/default.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/css/layout.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/css/base.css') }}" rel="stylesheet" type="text/css" />
@@ -34,7 +34,7 @@
 <div id="wrapper"> 
   <!-- header// -->
   <header>
-    <div id="logo"><a href="http://odekake-ashi.com/"><img src="{{ asset('/img/shared/logo.svg') }}"
+    <div id="logo"><a href="http://mystery-travelagency.com/"><img src="{{ asset('/img/shared/logo.svg') }}"
       alt="謎解キ旅行社" /></div>    
       <div id="global">
       <!--<ul id="sns">
@@ -57,7 +57,7 @@
     <div id="bodyHead">
       <div id="breadCrumbs">
         <ol itemscope="" itemtype="https://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="http://odekake-ashi.com/" itemprop="item"><span itemprop="name">HOME</span></a>
+          <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="http://mystery-travelagency.com/" itemprop="item"><span itemprop="name">HOME</span></a>
             <meta itemprop="position" content="1">
           </li>
           <li>お問い合わせ</li>

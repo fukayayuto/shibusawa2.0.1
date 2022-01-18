@@ -10,11 +10,11 @@
   <meta name="keywords" content="旅行,謎解き,脱出,ゲーム" />
   <meta property="og:title" content="よくある質問｜いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="http://odekake-ashi.com/faq/">
-  <meta property="og:image" content="http://odekake-ashi.com/img/shared/og_image.jpg">
+  <meta property="og:url" content="http://mystery-travelagency.com/faq/">
+  <meta property="og:image" content="http://mystery-travelagency.com/img/shared/og_image.jpg">
   <meta property="og:site_name" content="いつもの旅行に「謎解き」を加えて謎解きツアー【謎解キ旅行社】">
   <meta property="og:description" content="謎解き旅行社のヘルプページです。ツアーや申し込みに関する、よくある質問・疑問や謎解き旅行社への問い合わせ方法を紹介しています。" />
-  <link rel="canonical" href="http://odekake-ashi.com/faq/">
+  <link rel="canonical" href="http://mystery-travelagency.com/faq/">
   <link href="{{ asset('/css/default.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('/css/layout.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('/css/base.css') }}" rel="stylesheet" type="text/css" />
