@@ -30,7 +30,7 @@ class AdminMail extends Mailable
      */
     public function build()
     {
-        return $this->to('yuto.fukaya@cab-station.com') 
+        return $this->to('info@mystery-travelagency.com') 
                 ->from('info@mystery-travelagency.com')
                 ->subject('「謎解キ旅行社」ご依頼内容予約ページより送信されました')
                 ->view('contact.reserve.admin')->with(['data' => $this->data]);
