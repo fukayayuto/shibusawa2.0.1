@@ -93,6 +93,7 @@
 			<div id="form">
 				<p>ご利用内容・お客様情報をご入力ください。項目は全て<span>必須</span>です。</p>
 				<form method="post" action="{{route('shibusawa_confirm')}}">
+					
 					@csrf
 
 
