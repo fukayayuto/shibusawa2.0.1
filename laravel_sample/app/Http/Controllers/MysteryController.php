@@ -140,7 +140,7 @@ class MysteryController extends Controller
         $data['pref'] = $request->pref;
         $data['address'] = $request->address;
 
-        switch ($request->pay_method) {
+        switch ($request->payment_method) {
             case 1:
                 $data['payment_method'] = '銀行振り込み';
                 break;
