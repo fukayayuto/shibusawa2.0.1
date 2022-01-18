@@ -37,9 +37,9 @@
                     <td style="width: 20%">写真</td>
                     <td>
                         @if (!empty($data['file_name']))
-                            <img class="img-thumbnail" src="http://localhost:8888/img/<?php echo $data['file_name']; ?>" width="25%">
+                            <img class="img-thumbnail" src="http://mystery-travelagency.com/img/<?php echo $data['file_name']; ?>" width="25%">
                         @else
-                            <img class="img-thumbnail" src="http://localhost:8888/img/noimage.png" width="25%">
+                            <img class="img-thumbnail" src="http://mystery-travelagency.com/img/noimage.png" width="25%">
 
                         @endif
                     </td>

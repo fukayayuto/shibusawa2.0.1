@@ -17,9 +17,9 @@
                 <div class="card h-100">
                     <div class="text-center">
                         @if (!empty($data->image))
-                            <img class="img-thumbnail" src="http://localhost:8888/img/<?php echo $data->image; ?>" width="50%">
+                            <img class="img-thumbnail" src="http://mystery-travelagency.com/img/<?php echo $data->image; ?>" width="50%">
                         @else
-                            <img class="img-thumbnail" src="http://localhost:8888/img/noimage.png" width="50%">
+                            <img class="img-thumbnail" src="http://mystery-travelagency.com/img/noimage.png" width="50%">
 
                         @endif
                     </div>

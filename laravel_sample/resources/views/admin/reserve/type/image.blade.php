@@ -24,9 +24,9 @@
                     <td style="width: 20%">写真</td>
                     <td>
                         @if (!empty($reserve_type_data->image))
-                            <img class="img-thumbnail" src="http://localhost:8888/img/<?php echo $reserve_type_data->image; ?>" width="25%">
+                            <img class="img-thumbnail" src="http://mystery-travelagency.com/img/<?php echo $reserve_type_data->image; ?>" width="25%">
                         @else
-                            <img class="img-thumbnail" src="http://localhost:8888/img/noimage.png" width="25%">
+                            <img class="img-thumbnail" src="http://mystery-travelagency.com/img/noimage.png" width="25%">
 
                         @endif
                     </td>
