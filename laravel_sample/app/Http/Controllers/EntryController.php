@@ -530,7 +530,7 @@ class EntryController extends Controller
 
         $entry = new Entry();
 
-        $res = $entry->create([
+        $insert_data = $entry->create([
             'account_id' => $account_id,
             'pay_method' => $request->pay_method,
             'reserve_id' => $request->id,
@@ -539,6 +539,7 @@ class EntryController extends Controller
             'count_3' => $request->count_3,
             'adult_check' => $request->adult_check,
         ]);
+        $entry_id = $insert_data->id;
 
         if (!empty($res)) {
             $message = '新規予約を登録しました';
@@ -548,6 +549,6 @@ class EntryController extends Controller
 
 
 
-        return redirect('/admin/entry/detail/' . $request->id)->with('message', $message);
+        return redirect('/admin/entry/detail/' . $entry_id)->with('message', $message);
     }
 }
