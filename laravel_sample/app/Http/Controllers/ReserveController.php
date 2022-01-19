@@ -226,8 +226,6 @@ class ReserveController extends Controller
         $reserve = new Reserve();
         $reserve_data = $reserve->get_data($type);
 
-
-
         return view('admin.reserve.display_flg', compact('reserve_data'));
     }
 
@@ -239,7 +237,6 @@ class ReserveController extends Controller
     //渋沢用エントリー詳細
     public function shibusawa_entry($id)
     {
-
 
         $data = Cookie::get('message');
 
