@@ -5,8 +5,6 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <!-- <h1 class="h2">Dashboard</h1> -->
     <h1 class="h3">請求一覧</h1>
-    <div class="text-right">
-    </div>
 </div>
 
 @if (session('message'))
@@ -14,6 +12,12 @@
     {{ session('message') }}
 </div>
 @endif
+
+<div class="row">
+    <div class="text-center h4">
+        <a href="/admin/cost/{{$pre_month}}"><</a>  {{$month}}  <a href="/admin/cost/{{$next_month}}">></a>
+    </div>
+</div>
 
 
 <div class="row">
@@ -42,9 +46,9 @@
                 <td>{{ $val['name'] }}</td>
                 <td>{{ $val['count'] }}人</td>
                 <td>
-                    @if ($value['pay_method'] == 1)
+                    @if ($val['pay_method'] == 1)
                     銀行振り込み
-                    @elseif ($value['pay_method'] == 2)
+                    @elseif ($val['pay_method'] == 2)
                     クレジット
                     @else
                     paypay

@@ -14,6 +14,7 @@ use DateTime;
 use Alert;
 use App\MailTemplate;
 use App\Mail\Admin\SendMail;
+use Illuminate\Pagination\Paginator;
 
 class MailController extends Controller
 {
@@ -21,12 +22,13 @@ class MailController extends Controller
     public function index()
     {
         $mail = new Mail();
-        $mail_data_list = $mail->get_data_all();
+        // $mail_data = Mail::orderBy('created_at','desc')->paginate(3);
+        $mail_data = $mail->get_data_all();
 
         $week = array("日", "月", "火", "水", "木", "金", "土");
 
-        $mail_data = [];
-        foreach ($mail_data_list as $k => $val) {
+        // $mail_data = [];
+        foreach ($mail_data as $k => $val) {
             $tmp = [];
 
             $tmp['id'] = $val->id;
@@ -45,11 +47,12 @@ class MailController extends Controller
             $tmp['email'] = $account_data->email;
             $tmp['account_id'] = $account_data->id;
 
-            $mail_data[$k] = $tmp;
+            $mail_data[$k] =  $tmp;
+
         }
 
 
-        return view('admin.mail.index', compact('mail_data'));
+        return view('admin.mail.index',compact('mail_data'));
     }
 
     //初期表示画面(メールアドレス検索)
@@ -89,12 +92,14 @@ class MailController extends Controller
                 $account_data = $account->select_data($val->account_id);
 
                 $tmp['account_name'] = $account_data->name;
+                $tmp['account_id'] = $account_data->id;
                 $tmp['email'] = $account_data->email;
 
                 $mail_data[$k] = $tmp;
             }
         }
-        return view('admin.mail.index', compact('mail_data'))->with('email', $email);
+        $search_flg = 1;
+        return view('admin.mail.index', compact('mail_data'))->with('email', $email)->with('search_flg',$search_flg);
     }
 
     //初期表示画面

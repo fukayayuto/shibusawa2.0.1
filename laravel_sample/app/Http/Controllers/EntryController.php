@@ -211,7 +211,6 @@ class EntryController extends Controller
 
         foreach ($reserve_data_list as $k => $val) {
 
-
             $tmp = [];
 
             $tmp['start'] = $val->start_date;
@@ -230,7 +229,7 @@ class EntryController extends Controller
 
             $tmp['title'] = $val->start_time . ' ( ' . $left_seat . ' / ' . $val->count . ' )';
             $tmp['color'] = '#00FF7F';
-            $tmp['url'] = '/reserve/detail/' . $val->id;
+            $tmp['url'] = '/admin/reserve/detail/' . $val->id;
 
             if ($entry_count > 0) {
                 $tmp['color'] = '#FF4500';

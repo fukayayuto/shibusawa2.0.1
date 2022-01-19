@@ -407,6 +407,9 @@ Route::group(['middleware' => 'basicauth'], function () {
 
     // ****************請求**************************************************
 
-    //メールテンプレート削除
+    //請求画面表示
     Route::get('/admin/cost', 'CostController@index')->name('cost');
+
+    //請求画面表示
+    Route::get('/admin/cost/{month}', 'CostController@month_index');
 });

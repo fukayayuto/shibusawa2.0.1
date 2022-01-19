@@ -38,8 +38,19 @@
                             class="btn btn-primary">表示</button></a></td>
             </tr>
             @endforeach
+            @if(empty($search_flg))
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{ $mail_data->links() }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            @endif
+            
             @endif
         </tbody>
+       
     </table>
 </div>
 

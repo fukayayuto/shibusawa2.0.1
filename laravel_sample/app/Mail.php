@@ -14,7 +14,7 @@ class Mail extends Model
     //全データ取得
     public function get_data_all()
     {
-        $mails = DB::table('mails')->orderBy('created_at', 'desc')->get();
+        $mails = DB::table('mails')->orderBy('created_at', 'desc')->paginate(15);
         return $mails;
     }
 

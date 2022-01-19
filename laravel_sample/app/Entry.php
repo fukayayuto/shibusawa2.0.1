@@ -51,6 +51,15 @@ class Entry extends Model
         return $enrty;
     }
 
+      //確定または月毎のエントリー取得
+      public function get_data__from_status_month($month)
+      {
+        $first_date = $month . '-1';
+          $final_date = $month . '+31';
+          $enrty = DB::table('entries')->where('status', '=', 1)->whereBetween($first_date,$final_date)->orderBy('created_at', 'desc')->get();
+          return $enrty;
+      }
+
     //参加日時変更
     public function update_start_date($data)
     {

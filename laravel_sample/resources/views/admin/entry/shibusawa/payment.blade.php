@@ -22,6 +22,12 @@
                 <tbody>
 
                     <tr>
+                        <td style="width: 25%">請求ID</td>
+                        <td>{{ number_format($entry_data->payment_id) }}</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
                         <td style="width: 25%">請求金額</td>
                         <td>{{ number_format($entry_data->price) }} 円</td>
                         <td></td>

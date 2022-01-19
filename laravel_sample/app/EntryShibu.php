@@ -9,7 +9,7 @@ class EntryShibu extends Model
 {
 
     protected $fillable = [
-        'start_date', 'start_time', 'start_station', 'finish_station', 'start_place', 'finish_place', 'count_1', '	count_2', 'count_3', 'adult_check', 'pay_method', 'account_id','payment_id', 'payment', 'payment_date',
+        'start_date', 'start_time', 'start_station', 'finish_station', 'start_place', 'finish_place', 'count_1', '	count_2', 'count_3', 'adult_check', 'pay_method', 'account_id', 'payment_id', 'payment', 'payment_date',
     ];
 
     public function get_data_lastest()
@@ -28,6 +28,16 @@ class EntryShibu extends Model
     public function get_data_status_confirm()
     {
         $enrty = DB::table('entry_shibus')->where('status', '=', 1)->orderBy('created_at', 'desc')->get();
+        return $enrty;
+    }
+
+
+    //確定または月毎のエントリー取得
+    public function get_data_from_status_month($month)
+    {
+        $first_date = $month . '-1';
+        $final_date = $month . '-31';
+        $enrty = DB::table('entry_shibus')->where('status', '=', 1)->whereBetween('start_date', [$first_date, $final_date])->orderBy('created_at', 'desc')->get();
         return $enrty;
     }
 
@@ -94,28 +104,28 @@ class EntryShibu extends Model
         }
     }
 
-     //ステータス変更
-     public function update_pickup($data)
-     {
-         $query = EntryShibu::where('id', '=', $data['id'])->update([
-             'start_station' => $data['start_station'],
-             'start_place' => $data['start_place'],
-             'finish_station' => $data['finish_station'],
-             'finish_place' => $data['finish_place'],
-         ]);
- 
-         if (!$query) {
-             return [
-                 'message' => '乗車、降車場所の変更に失敗しました',
-                 'alert' => 'danger',
-             ];
-         } else {
-             return [
-                 'message' => '乗車、降車場所を変更しました',
-                 'alert' => 'success',
-             ];
-         }
-     }
+    //ステータス変更
+    public function update_pickup($data)
+    {
+        $query = EntryShibu::where('id', '=', $data['id'])->update([
+            'start_station' => $data['start_station'],
+            'start_place' => $data['start_place'],
+            'finish_station' => $data['finish_station'],
+            'finish_place' => $data['finish_place'],
+        ]);
+
+        if (!$query) {
+            return [
+                'message' => '乗車、降車場所の変更に失敗しました',
+                'alert' => 'danger',
+            ];
+        } else {
+            return [
+                'message' => '乗車、降車場所を変更しました',
+                'alert' => 'success',
+            ];
+        }
+    }
 
     //入金登録
     public function payment_store($data)
@@ -139,15 +149,15 @@ class EntryShibu extends Model
         }
     }
 
-       //確定メール送信
-       public function updateConfirmFlg($entry_id)
-       {
-           $date = date('Y-m-d G:i');
-           $query = EntryShibu::where('id', '=', $entry_id)->update([
-               'confirm_flg' => 1,
-               'updated_at' => $date,
-           ]);
-       }
+    //確定メール送信
+    public function updateConfirmFlg($entry_id)
+    {
+        $date = date('Y-m-d G:i');
+        $query = EntryShibu::where('id', '=', $entry_id)->update([
+            'confirm_flg' => 1,
+            'updated_at' => $date,
+        ]);
+    }
 
 
     //アカウントからエントリー検索
@@ -164,24 +174,23 @@ class EntryShibu extends Model
         return $enrty;
     }
 
-     //参加日時変更
-     public function update_payment_id($data)
-     {
-         $query = EntryShibu::where('id', '=', $data['id'])->update([
-             'payment_id' => $data['payment_id'],
-         ]);
- 
-         if (!$query) {
-             return [
-                 'message' => '請求IDの変更に失敗しました',
-                 'alert' => 'danger',
-             ];
-         } else {
-             return [
-                 'message' => '請求IDを変更しました',
-                 'alert' => 'success',
-             ];
-         }
-     }
- 
+    //参加日時変更
+    public function update_payment_id($data)
+    {
+        $query = EntryShibu::where('id', '=', $data['id'])->update([
+            'payment_id' => $data['payment_id'],
+        ]);
+
+        if (!$query) {
+            return [
+                'message' => '請求IDの変更に失敗しました',
+                'alert' => 'danger',
+            ];
+        } else {
+            return [
+                'message' => '請求IDを変更しました',
+                'alert' => 'success',
+            ];
+        }
+    }
 }
