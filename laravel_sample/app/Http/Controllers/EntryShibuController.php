@@ -147,11 +147,13 @@ class EntryShibuController extends Controller
          $message = $res['message'];
 
          
+         
          Cookie::queue('key', 'value', 10, "/");
+
+         
 
  
          return redirect('/admin/entry/shibusawa/' . $request->id)->WithCookie('message', $message);
      }
 
-    
 }

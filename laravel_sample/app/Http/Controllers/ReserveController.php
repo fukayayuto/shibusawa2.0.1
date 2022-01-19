@@ -231,14 +231,15 @@ class ReserveController extends Controller
 
 
 
-
-
-
     //渋沢用エントリー詳細
     public function shibusawa_entry($id)
     {
 
+    
+
         $data = Cookie::get('key');
+        
+    
 
         var_dump($data);
         die();
