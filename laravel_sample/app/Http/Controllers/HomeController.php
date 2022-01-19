@@ -31,6 +31,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $data = session()->all();
+
+        var_dump($data);
+        die();
+
+
+
+
         $entry = new Entry();
         $entry_data_list = $entry->get_data_all();
         $entry_data = [];
