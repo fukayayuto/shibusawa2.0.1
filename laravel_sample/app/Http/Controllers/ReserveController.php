@@ -11,6 +11,7 @@ use App\Entry;
 use App\EntryShibu;
 use DateTime;
 use Alert;
+use Illuminate\Support\Facades\Cookie;
 
 class ReserveController extends Controller
 {
@@ -240,11 +241,11 @@ class ReserveController extends Controller
     {
 
 
-        $data = session()->all();
+        $data = Cookie::get('message');
 
         var_dump($data);
         die();
-        
+
         $entry = new EntryShibu();
         $entry_data = $entry->select_data($id);
 

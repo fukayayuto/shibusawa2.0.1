@@ -144,11 +144,8 @@ class EntryShibuController extends Controller
          $entry = new EntryShibu();
          $res = $entry->update_payment_id($data);
          $message = $res['message'];
-
-         Session::put('test','test2');
-         Session::all();
  
-         return redirect('/admin/entry/shibusawa/' . $request->id)->with('message', $message);
+         return redirect('/admin/entry/shibusawa/' . $request->id)->WithCookie('message', $message);
      }
 
     
