@@ -11,6 +11,7 @@ use App\Entry;
 use App\EntryShibu;
 use DateTime;
 use Alert;
+use Illuminate\Support\Facades\Session;
 
 class EntryShibuController extends Controller
 {
@@ -144,7 +145,7 @@ class EntryShibuController extends Controller
          $res = $entry->update_payment_id($data);
          $message = $res['message'];
 
-         session(['test' => 'test']);
+         Session::put('test','test2');
  
          return redirect('/admin/entry/shibusawa/' . $request->id)->with('message', $message);
      }
