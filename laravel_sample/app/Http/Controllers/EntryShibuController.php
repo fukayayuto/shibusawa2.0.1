@@ -146,6 +146,7 @@ class EntryShibuController extends Controller
          $message = $res['message'];
 
          Session::put('test','test2');
+         Session::all();
  
          return redirect('/admin/entry/shibusawa/' . $request->id)->with('message', $message);
      }
