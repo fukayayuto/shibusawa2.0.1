@@ -238,7 +238,7 @@ class ReserveController extends Controller
     public function shibusawa_entry($id)
     {
 
-        $data = Cookie::get('message');
+        $data = Cookie::get('key');
 
         var_dump($data);
         die();

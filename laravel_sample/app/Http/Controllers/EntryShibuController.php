@@ -12,6 +12,7 @@ use App\EntryShibu;
 use DateTime;
 use Alert;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Cookie;
 
 class EntryShibuController extends Controller
 {
@@ -144,6 +145,10 @@ class EntryShibuController extends Controller
          $entry = new EntryShibu();
          $res = $entry->update_payment_id($data);
          $message = $res['message'];
+
+         
+         Cookie::queue('key', 'value', 10, "/");
+
  
          return redirect('/admin/entry/shibusawa/' . $request->id)->WithCookie('message', $message);
      }
