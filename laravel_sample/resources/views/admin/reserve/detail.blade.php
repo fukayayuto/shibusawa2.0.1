@@ -16,7 +16,9 @@
     @endif
 
     <div class="text-right">
+        @if($reserve_data->left_seat > 0 && $reserve_data->display_flg == 0)
         <a href="/admin/entry/create/{{ $reserve_data->id }}"><button type="button" class="btn btn-success">新規登録</button></a>
+        @endif
     </div>
 
     <div class="row">
