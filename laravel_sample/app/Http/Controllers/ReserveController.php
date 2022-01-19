@@ -238,6 +238,13 @@ class ReserveController extends Controller
     //渋沢用エントリー詳細
     public function shibusawa_entry($id)
     {
+
+
+        $data = session()->all();
+
+        var_dump($data);
+        die();
+        
         $entry = new EntryShibu();
         $entry_data = $entry->select_data($id);
 
