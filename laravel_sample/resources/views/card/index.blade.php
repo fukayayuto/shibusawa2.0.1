@@ -1,7 +1,7 @@
 @extends('layouts.parents')
 @section('title', 'VeriTrans 4G - クレジットカード決済')
 @section('content')
-<link rel="stylesheet" href="{{asset('css/lording.css')}}">
+<link rel="stylesheet" href="{{asset('/css/lording.css')}}">
 <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">

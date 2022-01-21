@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}" >
+    <link rel="stylesheet" href="{{ asset('/css/app.css') }}" >
     <title>@yield('title')</title>
 </head>
 <body class="bg-light">
@@ -22,7 +22,7 @@
     </footer>
 
 </div>
-<script src=" {{ mix('js/app.js') }} "></script>
-<script src=" {{ mix('js/sample.js') }} "></script>
+<script src=" {{ asset('js/app.js') }} "></script>
+<script src=" {{ asset('js/sample.js') }} "></script>
 </body>
 </html>
