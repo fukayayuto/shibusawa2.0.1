@@ -27,10 +27,6 @@ class CardController extends Controller
 
     public function cardAuthorize(Request $request)
     {
-
-        
-
-
         $logger = Log::channel('tgmdk')->getLogger();
         if ($logger instanceof LoggerInterface) {
             TGMDK_Logger::setLogger($logger);
@@ -41,9 +37,6 @@ class CardController extends Controller
         $request_data->setOrderId($request->request->get("orderId"));
         $request_data->setToken($request->request->get("token"));
         $request_data->setWithCapture($request->request->get("withCapture"));
-
-        var_dump($request_data);
-        die();
 
         $request_data->setJpo(
             Helpers::generateJpo($request->request->get("jpo1"), $request->request->get("jpo2"))
@@ -80,6 +73,8 @@ class CardController extends Controller
 
     public function authorizeResult($orderId)
     {
+        var_dump(session($orderId));
+        die();
         $response_data = session($orderId);
         if ($response_data instanceof CardAuthorizeResponseDto) {
             return view('card/result')->with([
