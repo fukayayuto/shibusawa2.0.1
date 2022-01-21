@@ -50,7 +50,26 @@
             <input type="hidden" id="amount" name="amount" value="{{ $amount }}">
             <input type="hidden" id="withCapture" name="withCapture" value="true">
             <input type="hidden" id="jpo1" name="jpo1" value="10">
-          
+            <input type="hidden" name="tour_date" id="tour_date" value="{{$data['tour_date']}}">
+            <input type="hidden" name="departure_h" id="departure_h" value="{{$data['departure_h']}}">
+            <input type="hidden" name="departure_i" id="departure_i" value="{{$data['departure_i']}}">
+            <input type="hidden" name="pickup" id="pickup" value="{{$data['pickup']}}">
+            <input type="hidden" name="pickup_sup" id="pickup_sup" value="{{$data['pickup_sup']}}">
+            <input type="hidden" name="drop" id="drop" value="{{$data['drop']}}">
+            <input type="hidden" name="drop_sup" id="drop_sup" value="{{$data['drop_sup']}}">
+            <input type="hidden" name="adult" id="adult" value="{{$data['adult']}}">
+            <input type="hidden" name="child" id="child" value="{{$data['child']}}">
+            <input type="hidden" name="inf" id="inf" value="{{$data['inf']}}">
+            <input type="hidden" name="rep_over20" id="rep_over20" value="{{$data['rep_over20']}}">
+            <input type="hidden" name="rep_name" id="rep_name" value="{{$data['rep_name']}}">
+            <input type="hidden" name="rep_kana" id="rep_kana" value="{{$data['rep_kana']}}">
+            <input type="hidden" name="tel" id="tel" value="{{$data['tel']}}">
+            <input type="hidden" name="email" id="email" value="{{$data['email']}}">
+            <input type="hidden" name="pref" id="pref" value="{{$data['pref']}}">
+            <input type="hidden" name="address" id="address" value="{{$data['address']}}">
+            <input type="hidden" name="payment_method" id="payment_method" value="{{$data['payment_method']}}">
+
+            
 
             <div class="mb-3">
                 <label for="orderId">取引ID</label>
@@ -65,6 +84,11 @@
                 </div>
 
             </div>
+
+            {{-- <div class="mb-3">
+                <label for="amount">金額</label>
+                <label for="{{ $amount }}"></label>
+            </div> --}}
 
 
             <div class="mb-3">

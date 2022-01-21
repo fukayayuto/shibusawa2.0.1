@@ -142,17 +142,17 @@ class MysteryController extends Controller
         $data['payment_method'] = $request->payment_method;
         $data['address'] = $request->address;
 
-        // session()->put('tour_data', $data);
+        session()->put('tour_data', $data);
 
-        // if ($request->payment_method == 'クレジット') {
-        //     return view('card/index',compact('data'))->with(
-        //         [
-        //             'tokenApiKey' => Config::get('sample_setting.token.token_api_key'),
-        //             "amount" => "18000",
-        //             "orderId" => Helpers::generateOrderId(),
-        //         ]
-        //     );
-        // }
+        if ($request->payment_method == 'クレジット') {
+            return view('card/index',compact('data'))->with(
+                [
+                    'tokenApiKey' => Config::get('sample_setting.token.token_api_key'),
+                    "amount" => "18000",
+                    "orderId" => Helpers::generateOrderId(),
+                ]
+            );
+        }
 
     
         // $template = new MailTemplate();
