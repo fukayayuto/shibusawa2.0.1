@@ -60,6 +60,7 @@ class Kernel extends HttpKernel
            \App\Http\Middleware\EncryptCookies::class,
            \Illuminate\Session\Middleware\StartSession::class,
            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+           \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
 
