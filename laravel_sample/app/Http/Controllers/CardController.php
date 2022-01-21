@@ -59,12 +59,11 @@ class CardController extends Controller
          */
 
         if ($response_data instanceof CardAuthorizeResponseDto) {
-            $order_id = $request->request->get("orderId");
-            $request->session()->put($request->request->get("orderId"), $response_data);
+            // $order_id = $request->request->get("orderId");
+            // $request->session()->put($request->request->get("orderId"), $response_data);
 
-            $test = session()->get($order_id);
-            var_dump($test);
-            die();
+            cache([$request->request->get("orderId") => $response_data], 100);
+
 
             return redirect()->action('CardController@authorizeResult', ['orderId' => $request->request->get("orderId")]);
         }
@@ -85,7 +84,8 @@ class CardController extends Controller
 
     public function authorizeResult($orderId)
     {
-        var_dump(session($orderId));
+        $cache = cache($orderId);
+        var_dump($cache);
         die();
         $response_data = session($orderId);
         if ($response_data instanceof CardAuthorizeResponseDto) {
