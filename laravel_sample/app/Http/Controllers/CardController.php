@@ -84,10 +84,9 @@ class CardController extends Controller
 
     public function authorizeResult($orderId)
     {
-        $cache = cache($orderId);
-        var_dump($cache);
-        die();
-        $response_data = session($orderId);
+        $response_data = cache($orderId);
+      
+        // $response_data = session($orderId);
         if ($response_data instanceof CardAuthorizeResponseDto) {
             return view('card/result')->with([
                 'mstatus' => $response_data->getMstatus(),
