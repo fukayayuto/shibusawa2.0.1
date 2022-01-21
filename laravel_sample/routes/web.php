@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('test', 'MenuController@test');
+
 Route::get('menu', 'MenuController@index');
 
 Route::get('card', 'CardController@index');
