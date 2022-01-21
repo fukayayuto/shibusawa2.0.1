@@ -63,6 +63,10 @@ class CardController extends Controller
             return redirect()->action('CardController@authorizeResult', ['orderId' => $request->request->get("orderId")]);
         }
 
+        var_dump(session($request->request->get("orderId")));
+        die();
+
+
         return view('card/index')->with(
             [
                 'tokenApiKey' => Config::get('sample_setting.token.token_api_key'),
